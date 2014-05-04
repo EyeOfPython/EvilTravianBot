@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objective-list>
+<objectives rank="slave" nations="roman">
+
+<objective-branch name="resources">
+<objective type="set_hero_attributes" resource="2" attack_behaviour="hide" />
+<objective type="build_up" bid="5" name="claypit" level="1" />
+<objective type="build_up" bid="6" name="claypit" level="1" />
+<objective type="build_up" bid="1" name="woodcutter" level="1" />
+<objective type="build_up" bid="16" name="claypit" level="1" />
+<objective type="build_up" bid="3" name="woodcutter" level="1" />
+<objective type="quest" id="Battle_02" comment="receive hiding_place" />
+<objective type="build_up" bid="2" name="cropland" level="1" />
+<objective type="build_up" bid="9" name="cropland" level="1" />
+<objective type="build_up" bid="4" name="iron_mine" level="1" />
+<objective type="quest" id="Economy_01" />
+<objective type="build_up" bid="14" name="woodcutter" level="1" />
+<objective type="build_up" bid="8" name="cropland" level="1" />
+<objective type="build_up" bid="7" name="iron_mine" level="1" />
+<objective type="get" url="/statistiken.php" />
+<objective type="quest" id="World_01" />
+<objective type="build_up" bid="5" name="claypit" level="2" />
+</objective-branch>
+
+<objective-branch name="buildings">
+<objective type="build_new" bid="20" gid="23" name="hiding_place" level="1" />
+<objective type="build_up" bid="26" name="main_building" level="2" />
+<objective type="build_up" bid="26" name="main_building" level="3" />
+
+</objective-branch>
+
+</objectives>
+</objective-list>
