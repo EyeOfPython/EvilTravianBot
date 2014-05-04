@@ -6,6 +6,18 @@ Created on 27.04.2014
 from datetime import datetime
 from event import handler_class, listen_to
 
+class _TriggerFunc():
+    
+    def __init__(self, cls, callback):
+        self.cls = cls
+        self.callback = callback
+        
+    def enqueue(self, village, *params):
+        self.cls(village, self.callback, *params)
+
+def trigger(trigger_cls):
+    return lambda fn: _TriggerFunc(trigger_cls, fn)
+    
 @handler_class
 class Trigger():
     '''
@@ -51,6 +63,26 @@ class TriggerEnoughResources(Trigger):
         self.recalc_time()
     
 @handler_class
+class TriggerEnoughSpaceForResources(Trigger):
+    '''
+    Fires when a village can accept a certain amount of resources without overflow in the storages.
+    Only used for accepting quest reward.
+    '''
+    
+    def __init__(self, village, callback, resources):
+        super().__init__(village, callback)
+        self.resources = resources
+    
+    def update(self):
+        pass
+    
+    @listen_to('spend_resources')
+    def on_spend_resources(self, event):
+        if self.village.has_enough_space(self.resources):
+            self.terminate()
+            self.callback()
+    
+@handler_class
 class TriggerBuildSlotAvailable(Trigger):
     '''
     Fires when a building has finished building, and the according slot is free
@@ -69,4 +101,25 @@ class TriggerBuildSlotAvailable(Trigger):
             self.terminate()
             self.callback()
         
+if __name__ == '__main__':
+    from village import Village
+    from account import Account
+    from resources import Resources
+    from event import Event
+    
+    @trigger(TriggerEnoughSpaceForResources)
+    def handler_enought_space():
+        print("enough!")
         
+    vill = Village(Account((0,0), None), None, None, None)
+    vill.resources = Resources((90,0,0,0))
+    vill.storage_capacity = Resources((100,0,0,0))
+    vill.next_refresh_time = datetime(2220, 1, 1)
+    handler_enought_space.enqueue(vill, Resources((20,0,0,0)))
+    print("first check")
+    vill.fire_event(Event(vill, 'spend_resources', datetime.now()))
+    print("second check")
+    vill.resources = Resources((0,0,0,0))
+    vill.fire_event(Event(vill, 'spend_resources', datetime.now()))
+    print(vill.triggers)
+    

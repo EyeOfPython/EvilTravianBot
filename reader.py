@@ -91,6 +91,14 @@ def read_resources(doc):
 
     return resources
 
+def read_storage_capacity(doc):
+    """ At any page """
+    
+    capacity_warehouse = int(doc.find("span#stockBarWarehouse").text())
+    capacity_granary   = int(doc.find("span#stockBarGranary").text())
+    
+    return [ capacity_warehouse ] * 3 + [ capacity_granary ] # Match it to a resource list
+
 def read_production(doc):
     """ Requires dorf1.php """
 

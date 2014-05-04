@@ -27,6 +27,7 @@ class Village():
         self.coord = coord
         
         self.resources = None
+        self.storage_capacity = None
         self.production = None
         self.resource_fields = None
         self.buildings = None
@@ -51,6 +52,9 @@ class Village():
 
     def has_enough_resources(self, resr):
         return +(self.resources - resr) == (self.resources - resr)
+
+    def has_enough_space(self, resr):
+        return +(self.resources + resr - self.storage_capacity) == Resources((0,0,0,0))
 
     def get_production_time(self, resr):
         needed = +(self.resources - resr) - (self.resources - resr)
@@ -109,6 +113,7 @@ class Village():
             self.resource_fields = reader.read_resource_fields(doc)
             self.resources = Resources(reader.read_resources(doc))
             self.production = Resources(reader.read_production(doc))
+            self.storage_capacity = Resources(reader.read_storage_capacity(doc))
         
         # dorf2.php
         if 'village' in pages:

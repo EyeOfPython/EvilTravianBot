@@ -5,13 +5,13 @@ class Resources(tuple):
         if isinstance(other, (list, tuple)):
             return Resources(self[i] + other[i] for i in range(len(self)))
         else:
-            raise NotImplemented("for " + str(type(other)))
+            raise NotImplementedError("for " + str(type(other)))
 
     def __sub__(self, other):
         if isinstance(other, (list, tuple)):
             return Resources(self[i] - other[i] for i in range(len(self)))
         else:
-            raise NotImplemented("for " + str(type(other)))
+            raise NotImplementedError("for " + str(type(other)))
 
     def __mul__(self, other):
         if isinstance(other, (list, tuple)):

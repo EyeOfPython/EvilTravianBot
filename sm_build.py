@@ -5,6 +5,7 @@ Created on 02.05.2014
 '''
 from state import State, StateMachine
 from event import listen_to, Event
+from trigger import trigger, TriggerEnoughResources
 
 build_roman = ( [
             { 'type': 'build', 'name': 'clay_pit', 'level': 1 },
@@ -62,7 +63,34 @@ class StateMachine_Job(metaclass = StateMachine):
     
     class start(State):
         
+        @listen_to('job_completed')
+        def on_job_completed(self, event):
+            if event.job['_id'] == self['after_job_id']:
+                self.current_state = self.wait_for_conditions
+                self.wait_for_conditions['job'] = self['job']
+                
+    class wait_for_conditions(State):
         
+        def transition(self):
+            'store the conditions of the job'
+            self['conditions'] = self['job'].get_conditions(self.village)
+            self.check_completion()
+            
+            if 'resources' in self['conditions']:
+                self.handle_en
+                
+        @trigger(TriggerEnoughResources)
+        def handle_enough_resources(self):
+            pass
+            
+        def check_completion(self):
+            if len(self['conditions']) == 0:
+                self['job'].execute()
+                self.current_state = self.terminated
+                
+    class terminated(State):
+        
+        pass
 
 class StateMachine_Quests(metaclass = StateMachine):
     

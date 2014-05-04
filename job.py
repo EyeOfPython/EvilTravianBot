@@ -22,9 +22,14 @@ def job(job_type):
     return _add_class
 
 class Job(dict):
+    
+    accumulator = 1000
 
     def __init__(self, job_dict, additional_conditions={}):
         job_dict.setdefault('type', self.__job_type__)
+        if '_id' not in job_dict:
+            job_dict['_id'] = Job.accumulator
+            Job.accumulator += 1
         dict.__init__(self, job_dict)
         self.additional_conditions = additional_conditions
 

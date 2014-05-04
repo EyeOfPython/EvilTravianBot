@@ -28,6 +28,10 @@ class State():
     def current_state(self, new_state):
         self.state_machine.transition_into(new_state)
         
+    @property
+    def village(self):
+        return self.state_machine.village
+        
     def init(self):
         pass
     
