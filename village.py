@@ -17,6 +17,12 @@ class Village():
             'buildings': '/dorf2.php'
         }
     
+    event_refresh_pages = {
+        'build': ('resources', 'village'),
+        'quest_reward': ('resources',),
+        'spent_resources': ('resources',)
+    }
+    
     def __init__(self, account, name, village_id, coord):
         from account import Account
         
@@ -135,8 +141,6 @@ class Village():
         self.read_content(pages)
         self.read_events(pages)
         
-        print(self)
-        
         self.new_refresh_time()
         
     def new_refresh_time(self):
@@ -164,8 +168,9 @@ class Village():
     def fire_event(self, event):
         print("event %s got fired!" % event)
         
-        if event.name == 'build':
-            self.refresh('resources', 'village')
+        pages = self.event_refresh_pages.get(event.name, None)
+        if pages is not None:
+            self.refresh(*pages)
         
         for event_handler in self.event_handlers:
             event_handler.__on_event__(event)

@@ -16,7 +16,9 @@ class _TriggerFunc():
         self.cls(village, self.callback, *params)
 
 def trigger(trigger_cls):
-    return lambda fn: _TriggerFunc(trigger_cls, fn)
+    def inner(fn):
+        return lambda self=None: _TriggerFunc(trigger_cls, lambda: fn(self))
+    return inner
     
 @handler_class
 class Trigger():
@@ -107,15 +109,18 @@ if __name__ == '__main__':
     from resources import Resources
     from event import Event
     
-    @trigger(TriggerEnoughSpaceForResources)
-    def handler_enought_space():
-        print("enough!")
+    class K():
+        @trigger(TriggerEnoughSpaceForResources)
+        def handler_enought_space(self):
+            print("enough!")
         
     vill = Village(Account((0,0), None), None, None, None)
     vill.resources = Resources((90,0,0,0))
     vill.storage_capacity = Resources((100,0,0,0))
     vill.next_refresh_time = datetime(2220, 1, 1)
-    handler_enought_space.enqueue(vill, Resources((20,0,0,0)))
+    
+    inst = K()
+    inst.handler_enought_space().enqueue(vill, Resources((20,0,0,0)))
     print("first check")
     vill.fire_event(Event(vill, 'spend_resources', datetime.now()))
     print("second check")

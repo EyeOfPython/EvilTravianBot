@@ -29,6 +29,7 @@ class EventSet():
             
 
 class Event():
+    
     def __init__(self, village, name, time, **data):
         self.village = village
         self.name = name
@@ -85,8 +86,9 @@ if __name__ == "__main__":
         @listen_to("build")
         def listener_test(self, event):
             self.test = "test"
-            
+    
     assert HandlerTest.listener_test in HandlerTest.__event_listeners__['build']
     h = HandlerTest()
     h.__on_event__(Event(None, "build", None))
     assert h.test == "test"
+    

@@ -27,8 +27,8 @@ class Job(dict):
 
     def __init__(self, job_dict, additional_conditions={}):
         job_dict.setdefault('type', self.__job_type__)
-        if '_id' not in job_dict:
-            job_dict['_id'] = Job.accumulator
+        if '_jid' not in job_dict:
+            job_dict['_jid'] = Job.accumulator
             Job.accumulator += 1
         dict.__init__(self, job_dict)
         self.additional_conditions = additional_conditions
@@ -172,10 +172,10 @@ class JobRenameVillage(Job):
 @job('quest')
 class JobQuest(Job):
     
-    def get_conditions(self, village):
+    '''def get_conditions(self, village):
         cond = { 'quest': self['name'] }
         cond.update(super().get_conditions(village))
-        return cond
+        return cond'''
     
     def execute(self, village):
         action.action_quest(village.account, "next", self['name'])
