@@ -10,6 +10,7 @@ import travian
 import time
 
 import random
+from event import Event
 
 job_classes = {}
 
@@ -34,8 +35,8 @@ class Job(dict):
         self.additional_conditions = additional_conditions
 
     @classmethod
-    def create(cls, job_dict):
-        return job_classes[job_dict['type']](job_dict)
+    def create(cls, job_dict, additional_conditions={}):
+        return job_classes[job_dict['type']](job_dict, additional_conditions)
 
     def get_conditions(self, village):
         return self.additional_conditions
@@ -55,7 +56,7 @@ def get(url):
 def rename_village(new_name):
     return Action(None, action.action_rename_current_village, [ new_name ])
 
-build_roman = ( [
+"""build_roman = ( [
             { "name": "clay_pit", "level": 1, "actions": [ get("/statistiken.php") ] },
             { "name": "clay_pit", "level": 1, "actions": [ rename_village("Bubber Duckery") ] },
             { "name": "woodcutter", "level": 1, "actions": [ quest("World_02") ]},
@@ -99,7 +100,15 @@ build_roman = ( [
             { "name": "warehouse", "level": 1, "actions": [ quest("World_04"), get("/karte.php") ] },
             { "name": "marketplace", "level": 1 }
         ]
-    )
+    )"""
+
+##### ROOT JOB #####
+
+@job('root')
+class JobRoot(Job):
+    def execute(self, village):
+        pass
+
 ##### BUILD JOB #####
 
 @job('build')
@@ -108,7 +117,7 @@ class JobBuild(Job):
     def get_conditions(self, village):
         build_id = self.get_build_id()
         build_db = db.buildings[build_id]
-        resources = build_db['levels'][self['level']-1]
+        resources = build_db['levels'][self['level']-1]['r']
         
         cond = { 'resources': resources,
                  'build_slot_id': self.get_slot_id(village.account) }
@@ -116,34 +125,7 @@ class JobBuild(Job):
         return cond
         
     def execute(self, village):
-        self.build_building(self.get_build_id(), self['level'])
-    
-    def build_building(self, village, bld_gid, bld_lvl):
-        from_lvl = bld_lvl - 1
-
-        bld_bid = None
-        bld_new = None
-        for bid, gid, lvl in village.buildings:
-            if gid == bld_gid and lvl == from_lvl:
-                bld_bid = bid
-                bld_new = False
-                break
-
-        if bld_bid is None:
-            for bid, gid, lvl in village.buildings:
-                if gid == 0:
-                    bld_bid = bid
-                    bld_new = True
-                    print("building gid %d lvl %d new on %d" % (bld_gid, bld_lvl, bld_bid))
-                    break
-                
-        if bld_new is None:
-            return False
-
-        if bld_new == True:
-            action.action_build_new(village.account, bld_bid, bld_gid)
-        else:
-            action.action_build_up(village.account, bld_bid)
+        village.build_building(self.get_build_id(), self['level'])
         
     def get_build_id(self):
         return db.building_names[self['name']]
@@ -159,24 +141,27 @@ class JobHttp(Job):
     
     def execute(self, village):
         if self.get('method', None) == 'post':
-            self.village.account.request_POST(self['url'], self['params'])
+            village.account.request_POST(self['url'], self['params'])
         else:
-            self.village.account.request_GET(self['url'], False)
+            village.account.request_GET(self['url'], False)
             
 @job('rename_village')
 class JobRenameVillage(Job):
     
     def execute(self, village):
-        action.action_rename_current_village(village.account, self['new_name'])
+        action.action_rename_village(village.account, village.village_id, self['new_name'])
 
 @job('quest')
 class JobQuest(Job):
     
-    '''def get_conditions(self, village):
-        cond = { 'quest': self['name'] }
+    def get_conditions(self, village):
+        cond = {}
+        if 'space' in self:
+            cond['space'] = self['space']
         cond.update(super().get_conditions(village))
-        return cond'''
+        return cond
     
     def execute(self, village):
         action.action_quest(village.account, "next", self['name'])
+        village.fire_event(Event(village, 'quest_reward', datetime.now()))
         

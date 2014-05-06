@@ -1,7 +1,7 @@
 from htmldom.htmldom import HtmlDom
 
 import re
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 #from village import ItemInventory
 
 import db
@@ -118,7 +118,7 @@ def read_build_queue(doc):
     for bldElm in queue:
         m = reg_queue.match(bldElm.find("div.name").text())
         try:
-            timer = (datetime.strptime(bldElm.find("div.buildDuration span").text(), "%H:%M:%S") - datetime(1900, 1, 1))
+            timer = (datetime.strptime(bldElm.find("div.buildDuration span").text(), "%H:%M:%S") - datetime(1900, 1, 1)) # - timedelta(hours=1))
         except:
             continue
         

@@ -18,13 +18,15 @@ def read_proxies(path):
     for match in regex.finditer(text):
         proxies.append("http://%s" % (match.group(0)))
 
-def test_proxy(proxy_url, timeout=0.1):
+def test_proxy(proxy_url, timeout=0.2):
     session = requests.Session()
     session.proxies = { "http": proxy_url, "https": proxy_url }
     try:
         response = session.get("http://google.com", timeout=timeout)
         if response.status_code != 200:
             #print(proxy, "response error", response)
+            return False
+        if 'title="Google"' not in response.text:
             return False
         #print(proxy_url, "works")
         return True
@@ -34,7 +36,6 @@ def test_proxy(proxy_url, timeout=0.1):
 
 if __name__ == '__main__':
     read_proxies("proxies.txt")
-    print(proxies)
     #proxies = ["http://94.23.244.96:3128"]
     for proxy in proxies:
         if test_proxy(proxy):

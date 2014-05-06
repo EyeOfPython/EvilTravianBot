@@ -3,6 +3,7 @@ import reader
 from resources import Resources
 from event import EventSet, Event
 import random
+import action
 
 class Village():
 
@@ -14,13 +15,13 @@ class Village():
     # maps important urls to more friendly names
     url_mapping = {
             'resources': '/dorf1.php',
-            'buildings': '/dorf2.php'
+            'village': '/dorf2.php'
         }
     
     event_refresh_pages = {
         'build': ('resources', 'village'),
         'quest_reward': ('resources',),
-        'spent_resources': ('resources',)
+        'resources_spent': ('resources',),
     }
     
     def __init__(self, account, name, village_id, coord):
@@ -120,6 +121,7 @@ class Village():
             self.resources = Resources(reader.read_resources(doc))
             self.production = Resources(reader.read_production(doc))
             self.storage_capacity = Resources(reader.read_storage_capacity(doc))
+            self.name = reader.read_villages(doc, True)[0]['name']
         
         # dorf2.php
         if 'village' in pages:
@@ -131,7 +133,7 @@ class Village():
         Refreshes all pages related with this village, or only 
         with the given pages.
         '''
-        print('refreshing at', datetime.now())
+        print('refreshing', page_names, 'at', datetime.now())
         pages = {}
         page_names = page_names or self.url_mapping.keys()
         for page_name in page_names:
@@ -141,10 +143,12 @@ class Village():
         self.read_content(pages)
         self.read_events(pages)
         
+        print(self.events.build)
+        
         self.new_refresh_time()
         
     def new_refresh_time(self):
-        self.next_refresh_time = datetime.now() + timedelta(minutes=random.random()*3)
+        self.next_refresh_time = datetime.now() + timedelta(minutes=random.random()*1)
             
     def update(self):
         '''
@@ -157,7 +161,7 @@ class Village():
             next_event = self.events.next
             self.events.remove(next_event)
             self.events.update_next()
-            self.fire_event(next) # asynchronously 
+            self.fire_event(next_event) # asynchronously 
             
         for trigger in self.triggers:
             trigger.update()
@@ -166,7 +170,7 @@ class Village():
             self.refresh()
             
     def fire_event(self, event):
-        print("event %s got fired!" % event)
+        print("event %s got fired! %s" % (event.name, event))
         
         pages = self.event_refresh_pages.get(event.name, None)
         if pages is not None:
@@ -177,7 +181,37 @@ class Village():
             
         for trigger in self.triggers:
             trigger.__on_event__(event)
+        
+    def build_building(self, bld_gid, bld_lvl):
+        from_lvl = bld_lvl - 1
+
+        bld_bid = None
+        bld_new = None
+        for bid, gid, lvl in self.buildings + self.resource_fields:
+            if gid == bld_gid and lvl == from_lvl:
+                bld_bid = bid
+                bld_new = False
+                break
+
+        if bld_bid is None:
+            for bid, gid, lvl in self.buildings + self.resource_fields:
+                if gid == 0:
+                    bld_bid = bid
+                    bld_new = True
+                    print("building gid %d lvl %d new on %d" % (bld_gid, bld_lvl, bld_bid))
+                    break
+                
+        if bld_new is None:
+            print("Nothing to build found! ")
+            return False
+
+        if bld_new == True:
+            action.action_build_new(self.account, bld_bid, bld_gid)
+        else:
+            action.action_build_up(self.account, bld_bid)
             
+        self.fire_event(Event(self, 'resources_spent', datetime.now()))
+        
     def __repr__(self):
         return str(self)
             

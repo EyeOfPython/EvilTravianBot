@@ -11,7 +11,7 @@ class Resources(tuple):
         if isinstance(other, (list, tuple)):
             return Resources(self[i] - other[i] for i in range(len(self)))
         else:
-            raise NotImplementedError("for " + str(type(other)))
+            raise NotImplementedError("for %s(%s)" %(type(other), other) )
 
     def __mul__(self, other):
         if isinstance(other, (list, tuple)):

@@ -171,7 +171,7 @@ class Account():
         
         self.loadup() # requests 1 village
         quest.skip_tutorial(self)
-        action.action_tutorial(self, "next", "Tutorial_15a")
+        action.action_quest(self, "next", "Tutorial_15a")
         
         user_db['activated'] = True
         db.users.save(user_db)
@@ -199,8 +199,10 @@ class Account():
         
         print("POST", params)
 
-        # perform login and return village overview        
-        return self.request_POST("/dorf1.php", params)
+        # perform login and return village overview
+        doc = self.request_POST("/dorf1.php", params)
+        self.ajax_token = reader.read_ajax_token(doc)
+        return doc
     
     def loadup(self):
         """
@@ -218,6 +220,8 @@ class Account():
             
             if not len(reader.read_resource_fields(doc_resources)):
                 print("login failed!")
+        else:
+            self.ajax_token = reader.read_ajax_token(doc_resources)
         
         village = self.request_village(None, doc_resources)
         
@@ -244,6 +248,7 @@ class Account():
         
         if active_village['village_id'] not in self.villages:
             self.villages[active_village['village_id']] = Village(self, **active_village)
+            self.current_village = self.villages[active_village['village_id']]
         
         village = self.villages[active_village['village_id']]
         if active_village['name'] != village.name:

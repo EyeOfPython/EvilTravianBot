@@ -74,11 +74,13 @@ class TriggerEnoughSpaceForResources(Trigger):
     def __init__(self, village, callback, resources):
         super().__init__(village, callback)
         self.resources = resources
+        
+        self.on_spend_resources(None)
     
     def update(self):
         pass
     
-    @listen_to('spend_resources')
+    @listen_to('resources_spent')
     def on_spend_resources(self, event):
         if self.village.has_enough_space(self.resources):
             self.terminate()
@@ -93,6 +95,8 @@ class TriggerBuildSlotAvailable(Trigger):
     def __init__(self, village, callback, slot_id):
         super().__init__(village, callback)
         self.slot_id = slot_id
+        
+        self.on_build(None)
         
     def update(self):
         pass
