@@ -45,6 +45,7 @@ class Village():
         
         self.event_handlers = []
         self.triggers = []
+        self.conditions = []
 
     def get_next_field(self):
         '''
@@ -165,6 +166,9 @@ class Village():
             
         for trigger in self.triggers:
             trigger.update()
+            
+        for cond in self.conditions:
+            cond.update()
             
         if self.next_refresh_time <= now:
             self.refresh()
