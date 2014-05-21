@@ -73,10 +73,10 @@ class ConditionEnoughResources(Condition):
         self.time = datetime.now() + self.village.get_production_time(self.resources)
     
     def update(self):
+        self.recalc_time()
         if self.state == False and self.time <= datetime.now():
             self.state = self.village.has_enough_resources(self.resources)
             self.check_change()
-            self.recalc_time()
         
     @listen_to('resources_spent', 'build', 'quest_reward')
     def on_resources_spent(self, event):

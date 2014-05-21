@@ -5,6 +5,7 @@ from event import EventSet, Event
 import random
 import action
 import db
+import traceback
 
 class Village():
 
@@ -69,8 +70,15 @@ class Village():
 
     def get_production_time(self, resr):
         needed = +(self.resources - resr) - (self.resources - resr)
-        return timedelta(hours=max(needed / (self.production + Resources((0.00001,)*4))))
-    
+        try:
+            return timedelta(hours=max(needed / (self.production + Resources((0.00001,)*4))))
+        except:
+            print(traceback.format_exc())
+            print("resr:", resr)
+            print("self.resources", self.resources)
+            print("self.production", self.production)
+            return timedelta(min=1)
+        
     def get_build_events_for_slot(self, slot_id):
         if slot_id == 0:
             return self.events.build
