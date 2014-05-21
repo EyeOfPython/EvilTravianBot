@@ -4,6 +4,7 @@ from resources import Resources
 from event import EventSet, Event
 import random
 import action
+import db
 
 class Village():
 
@@ -46,6 +47,8 @@ class Village():
         self.event_handlers = []
         self.triggers = []
         self.conditions = []
+        
+        self.suppress_refresh = False
 
     def get_next_field(self):
         '''
@@ -66,7 +69,7 @@ class Village():
 
     def get_production_time(self, resr):
         needed = +(self.resources - resr) - (self.resources - resr)
-        return timedelta(hours=max(needed / self.production))
+        return timedelta(hours=max(needed / (self.production + Resources((0.00001,)*4))))
     
     def get_build_events_for_slot(self, slot_id):
         if slot_id == 0:
@@ -134,6 +137,8 @@ class Village():
         Refreshes all pages related with this village, or only 
         with the given pages.
         '''
+        if self.suppress_refresh:
+            return
         print('refreshing', page_names, 'at', datetime.now())
         pages = {}
         page_names = page_names or self.url_mapping.keys()
@@ -149,7 +154,7 @@ class Village():
         self.new_refresh_time()
         
     def new_refresh_time(self):
-        self.next_refresh_time = datetime.now() + timedelta(minutes=random.random()*1)
+        self.next_refresh_time = datetime.now() + timedelta(minutes=random.random()*3+2)
             
     def update(self):
         '''
@@ -178,14 +183,20 @@ class Village():
         
         pages = self.event_refresh_pages.get(event.name, None)
         if pages is not None:
-            self.refresh(*pages)
-        
+            try:
+                self.refresh(*pages)
+            except Exception as e:
+                print("could not refresh due to connection issues.")
+                print(e)
         for event_handler in self.event_handlers:
             event_handler.__on_event__(event)
             
         for trigger in self.triggers:
             trigger.__on_event__(event)
         
+        for condition in self.conditions:
+            condition.__on_event__(event)
+            
     def build_building(self, bld_gid, bld_lvl):
         from_lvl = bld_lvl - 1
 
@@ -215,6 +226,15 @@ class Village():
             action.action_build_up(self.account, bld_bid)
             
         self.fire_event(Event(self, 'resources_spent', datetime.now()))
+        
+    def get_bid_by_gid(self, search_gid):
+        for bid, gid, lvl in self.buildings:
+            if search_gid == gid:
+                return bid
+        return None
+        
+    def get_bid_by_name(self, name):
+        return self.get_bid_by_gid(db.building_names[name])
         
     def __repr__(self):
         return str(self)

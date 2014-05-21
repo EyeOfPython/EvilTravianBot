@@ -11,6 +11,7 @@ import time
 
 import random
 from event import Event
+import reader
 
 job_classes = {}
 
@@ -126,6 +127,8 @@ class JobBuild(Job):
         
     def execute(self, village):
         village.build_building(self.get_build_id(), self['level'])
+        #if 'quest_event' in self:
+        #    village.fire_event(Event(village, 'quest_fulfilled', datetime.now(), quest_name=self['quest_event']))
         
     def get_build_id(self):
         return db.building_names[self['name']]
@@ -158,10 +161,42 @@ class JobQuest(Job):
         cond = {}
         if 'space' in self:
             cond['space'] = self['space']
+        if self.get('is_event_based', False):
+            cond['quest_event'] = self['name']
         cond.update(super().get_conditions(village))
         return cond
     
     def execute(self, village):
         action.action_quest(village.account, "next", self['name'])
         village.fire_event(Event(village, 'quest_reward', datetime.now()))
+        
+@job('read_inbox')
+class JobReadInbox(Job):
+    # Reads the most recent message
+    def execute(self, village):
+        doc = village.account.request_GET('/nachrichten.php')
+        inbox = reader.read_inbox(doc)
+        if len(inbox) == 0:
+            raise ValueError("No message in inbox found!")
+        for mail in inbox:
+            village.account.request_GET(mail['href'])
+        
+@job('open_gold_menu')
+class JobOpenGoldMenu(Job):
+    
+    def execute(self, village):
+        
+        response = village.account.ajax_cmd('paymentWizard', 
+                                                  { 'goldProductId': '',
+                                                    'goldProductLocation': '',
+                                                    'location': '',
+                                                    'activeTab': 'pros' }, get_cmd = 'paymentWizard' )
+
+@job('sell_resources')
+class JobSellResources(Job):
+    
+    def execute(self, village):
+        
+        action.action_sell_resources(village, self['sell_res'], self['sell_amount'], self['buy_res'], self['buy_amount'])
+        
         

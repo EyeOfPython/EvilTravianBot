@@ -64,7 +64,8 @@ class Account():
         self.activated = user['activated']
         
         # TODO: better proxy selection
-        self.session.proxies = { "http": self.proxies[0], "https": self.proxies[0] }
+        if len(self.proxies):
+            self.session.proxies = { "http": self.proxies[0], "https": self.proxies[0] }
         
     ### Request functions ###
     
@@ -127,14 +128,14 @@ class Account():
         return self.request_POST(form_action, params)
     
     
-    def ajax_cmd(self, cmd, params):
+    def ajax_cmd(self, cmd, params, get_cmd='quest'):
         params["cmd"] = cmd
         params["ajaxToken"] = self.ajax_token
 
         headers = dict(self.default_headers)
         headers.update({"Content-Type":    "application/x-www-form-urlencoded;"})
 
-        response = self.session.post(self.url + "/ajax.php?cmd=quest", data=params, headers=headers)
+        response = self.session.post(self.url + "/ajax.php?cmd=%s" % get_cmd, data=params, headers=headers)
         return response
     
     
@@ -178,7 +179,7 @@ class Account():
         
     def login(self, doc_login = None):
         print("logging in...")
-        
+        self.clear_cookie()
         doc = doc_login or self.request_GET("/dorf1.php")
 
         # retrieve current login POST data
@@ -210,7 +211,7 @@ class Account():
         Loads all villages, events and the hero.
         """
         self.load_db()
-        #self.load_cookie()
+        self.load_cookie()
         
         doc_resources = self.request_GET("/dorf1.php")
         if not len(reader.read_resource_fields(doc_resources)):

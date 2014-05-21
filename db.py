@@ -110,7 +110,10 @@ class DBTable():
 users = DBTable()
 jobs = DBTable()
 
-mongo_server = pymongo.MongoClient('localhost', 27017)
+try:
+    mongo_server = pymongo.MongoClient('localhost', 27017)
+except:
+    mongo_server = pymongo.MongoClient('ultimus.sytes.net', 27017)
 database = mongo_server.eviltravian
 users = database.users
 jobs = database.jobs

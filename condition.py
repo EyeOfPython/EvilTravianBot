@@ -13,7 +13,7 @@ class _ConditionFunc():
         self.callback = callback
         
     def enqueue(self, village, *params):
-        self.cls(village, self.callback, *params)
+        return self.cls(village, self.callback, *params)
 
 def condition_changes(cond_cls):
     def inner(fn):
@@ -67,6 +67,7 @@ class ConditionEnoughResources(Condition):
         super().__init__(village, callback)
         self.resources = resources
         self.recalc_time()
+        self.on_resources_spent(None)
     
     def recalc_time(self):
         self.time = datetime.now() + self.village.get_production_time(self.resources)
@@ -76,15 +77,12 @@ class ConditionEnoughResources(Condition):
             self.state = self.village.has_enough_resources(self.resources)
             self.check_change()
             self.recalc_time()
-    
-    @listen_to('build', 'quest_reward')
-    def on_build(self, event):
-        self.recalc_time()
         
-    @listen_to('resources_spent')
+    @listen_to('resources_spent', 'build', 'quest_reward')
     def on_resources_spent(self, event):
         self.state = self.village.has_enough_resources(self.resources)
         self.recalc_time()
+        self.check_change()
     
 @handler_class
 class ConditionEnoughSpaceForResources(Condition):
@@ -99,17 +97,13 @@ class ConditionEnoughSpaceForResources(Condition):
         
         self.on_spend_resources(None)
     
-    def update(self):
-        pass
-    
     @listen_to('resources_spent')
     def on_spend_resources(self, event):
-        if self.village.has_enough_space(self.resources):
-            self.terminate()
-            self.callback()
+        self.state = self.village.has_enough_space(self.resources)
+        self.check_change()
     
 @handler_class
-class TriggerBuildSlotAvailable(Trigger):
+class ConditionBuildSlotAvailable(Condition):
     '''
     Fires when a building has finished building, and the according slot is free
     '''
@@ -120,14 +114,34 @@ class TriggerBuildSlotAvailable(Trigger):
         
         self.on_build(None)
         
-    def update(self):
-        pass
-    
     @listen_to('build')
     def on_build(self, event):
-        if len(self.village.get_build_events_for_slot(self.slot_id)) == 0:
-            self.terminate()
-            self.callback()
+        events = self.village.get_build_events_for_slot(self.slot_id)
+        self.state = len(events) == 0
+        self.check_change()
+
+@handler_class
+class ConditionQuestFulfilled(Condition):
+    '''
+    Fires when a quest condition is fulfilled.
+    '''
+    
+    def __init__(self, village, callback, quest_name):
+        super().__init__(village, callback)
+        
+        self.quest_name = quest_name
+    
+    @listen_to('quest_fulfilled')
+    def on_quest_fulfilled(self, event):
+        if event.quest_name == self.quest_name:
+            self.state = True
+            self.check_change()
+
+class ConditionAnd(Condition):
+    
+    def __init(self, callback, conditions):
+        self.conditions = conditions
+        
         
 if __name__ == '__main__':
     from village import Village
@@ -136,21 +150,23 @@ if __name__ == '__main__':
     from event import Event
     
     class K():
-        @trigger(TriggerEnoughSpaceForResources)
+        @condition_changes(ConditionEnoughSpaceForResources)
         def handler_enought_space(self):
             print("enough!")
         
     vill = Village(Account((0,0), None), None, None, None)
+    vill.suppress_refresh = True
     vill.resources = Resources((90,0,0,0))
+    vill.production = Resources((1,0,0,0))
     vill.storage_capacity = Resources((100,0,0,0))
     vill.next_refresh_time = datetime(2220, 1, 1)
     
     inst = K()
-    inst.handler_enought_space().enqueue(vill, Resources((20,0,0,0)))
+    c = inst.handler_enought_space().enqueue(vill, Resources((20,0,0,0)))
     print("first check")
-    vill.fire_event(Event(vill, 'spend_resources', datetime.now()))
+    vill.fire_event(Event(vill, 'resources_spent', datetime.now()))
+    print("is true:", c.is_true())
     print("second check")
     vill.resources = Resources((0,0,0,0))
-    vill.fire_event(Event(vill, 'spend_resources', datetime.now()))
-    print(vill.triggers)
-    
+    vill.fire_event(Event(vill, 'resources_spent', datetime.now()))
+    print("is true:", c.is_true())

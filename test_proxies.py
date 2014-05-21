@@ -6,8 +6,11 @@ Created on 18.04.2014
 
 import requests
 import re
+import os
 
 proxies = [ ]
+
+os.environ['HTTP_PROXY'] = ''
 
 def read_proxies(path):
     text = open("proxies.txt").read()
@@ -30,8 +33,9 @@ def test_proxy(proxy_url, timeout=0.2):
             return False
         #print(proxy_url, "works")
         return True
-    except:
+    except Exception as e:
         #print(proxy_url, "doesnt work")
+        #print(e)
         return False
 
 if __name__ == '__main__':

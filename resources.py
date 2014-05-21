@@ -19,7 +19,7 @@ class Resources(tuple):
         elif isinstance(other, (int, float)):
             return Resources(v * other for v in self)
         else:
-            raise NotImplemented("for " + str(type(other)))
+            raise NotImplementedError("for %s(%s)" %(type(other), other) )
 
     def __truediv__(self, other):
         if isinstance(other, (list, tuple)):
@@ -27,7 +27,7 @@ class Resources(tuple):
         elif isinstance(other, (int, float)):
             return Resources(v / other for v in self)
         else:
-            raise NotImplemented("for " + str(type(other)))
+            raise NotImplementedError("for %s(%s)" %(type(other), other) )
 
     def __floordiv__(self, other):
         if isinstance(other, (list, tuple)):
@@ -35,7 +35,7 @@ class Resources(tuple):
         elif isinstance(other, (int, float)):
             return Resources(v // other for v in self)
         else:
-            raise NotImplemented("for " + str(type(other)))
+            raise NotImplementedError("for %s(%s)" %(type(other), other) )
     
     def __pos__(self):
         return Resources(max(v, 0) for v in self)

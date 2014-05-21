@@ -138,4 +138,11 @@ def action_rename_current_village(account, new_name):
     village_id = account.current_village.village_id
     action_rename_village(account, village_id, new_name)
     
+def action_sell_resources(village, sell_res, sell_amount, buy_res, buy_amount):
+    market_bid = village.get_bid_by_name('marketplace')
+    doc = village.account.request_GET('/build.php?id=%d&t=2' % market_bid)
+    village.account.submit_form(doc, '.sell_resources', { 'm1': sell_amount,
+                                                          'm2': buy_amount,
+                                                          'rid1': sell_res,
+                                                          'rid2': buy_res })
     

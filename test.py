@@ -5,11 +5,15 @@ import db
 from sm_build import JobManager, build_roman
 from datetime import datetime
 from event import Event
+import sys, os
+from job import JobReadInbox, JobOpenGoldMenu, JobSellResources
 
-name = "Peter_10"
+name = "Hans_26"
 email = name.lower() + "@ultimus.no-ip.org"
 password = "pass_" + name[::-1] # reverse name
 nation = "roman"
+
+os.environ['HTTP_PROXY'] = ''
 
 """
 http://217.76.38.69:3128
@@ -17,20 +21,22 @@ http://81.198.230.182:8080
 """
 
 proxies = [ "http://217.76.38.69:3128" ]
+#proxies = [  ]
 
-server = (5, 'de')
+server = (6, 'de')
 
 account = Account(server, name)
 
-#db.users.remove({'name':'Peter_08'}) # wipe users
+#db.users.remove({}) # wipe users
 
-if account.get_db() is None:
-    account.init_db(email, password, nation, proxies)
-    account.load_db()
+if account.get_db() is None or account.get_db()['activated'] == False:
     
     print("need to register this account first:")
     print("ensure the mailserver is running")
-    action.action_register(account)
+    if account.get_db() is None:
+        account.init_db(email, password, nation, proxies)
+        account.load_db()
+        action.action_register(account)
     
     print("wait for activation email to receive...")
     user_db = account.get_db()
@@ -42,9 +48,10 @@ if account.get_db() is None:
     
 account.loadup()
 
+first_village = next(iter(account.villages.values()))
+
 running = True
 
-first_village = next(iter(account.villages.values()))
 jm = JobManager(first_village, build_roman)
 first_village.event_handlers.append(jm)
 
