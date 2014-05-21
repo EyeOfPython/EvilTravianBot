@@ -17,6 +17,20 @@ import db
 
 #smtpd.DEBUGSTREAM = sys.stdout
 
+std_out = sys.stdout
+f_out = open('server_email.log', 'w')
+class fc_out(object):
+    def write(self, s):
+        global std_out, f_out
+        std_out.write(s)
+        f_out.write(s)
+    def flush(self):
+        global std_out, f_out
+        std_out.flush()
+        f_out.flush()
+
+sys.stdout = fc_out()
+
 reg = r"(http://www\.travian\.\w{1,4}/\?worldId=\w{1,4}&id=\w*#activation)\n\n-------------------------------------------------------------------------=\n--------------------------------------------------------\n\n[^:]*:\n\n[^:]*:  ([^\n]*)\n[^:]*: .*\n[^:]*: (.*)\n[^:]*: .*\n\n[^:]*: (\w*)"
 reg = reg.replace(r'\n', '\n')
 r"""
