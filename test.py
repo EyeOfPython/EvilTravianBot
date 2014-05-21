@@ -8,7 +8,25 @@ from event import Event
 import sys, os
 from job import JobReadInbox, JobOpenGoldMenu, JobSellResources
 
-name = "Hans_26"
+if len(sys.argv) == 1:
+    name = "Hans_26"
+else:
+    name = sys.argv[1]
+
+std_out = sys.stdout
+f_out = open('log/player_%s.log' % name, 'w')
+class fc_out(object):
+    def write(self, s):
+        global std_out, f_out
+        std_out.write(s)
+        f_out.write(s)
+    def flush(self):
+        global std_out, f_out
+        std_out.flush()
+        f_out.flush()
+
+sys.stdout = fc_out()
+
 email = name.lower() + "@ultimus.no-ip.org"
 password = "pass_" + name[::-1] # reverse name
 nation = "roman"
