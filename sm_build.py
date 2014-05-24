@@ -119,20 +119,29 @@ build_roman = (
         { 'type': 'quest', 'name': 'Economy_11', 'is_event_based': True }, # grain mill
         
         { 'type': 'quest', 'name': 'Battle_02',  'space': (130, 150, 120, 100), 'is_event_based': True }, # cranny
+        { 'type': 'quest', 'name': 'Battle_03',  'space': (110, 140, 160, 30),  'is_event_based': True }, # barracks
         
         { 'type': 'quest', 'name': 'World_03',   'space': (170, 100, 130, 70),  'is_event_based': True }, # main building lvl 3
         { 'type': 'quest', 'name': 'World_04',   'space': (215, 145, 195, 50),  'is_event_based': True }, # embassy
+        { 'type': 'quest', 'name': 'World_09',   'space': (570, 470, 560, 265), 'is_event_based': True }, # main building lvl 5
         
 )
 
 class JobManager():
     
-    def __init__(self, village, job_definition):
+    def __init__(self, village):
         self.village = village
-        self.jobs = []
+        #self.jobs = []
         self.state_machines = []
         self.root = Job.create({'type':'root'})
+        
+    def init_from_def(self, job_definition):
         self._recursive_add_jobs(self.root, job_definition)
+        
+    def init_from_db(self):
+        state_data = db.states.find( { '_village': self.village.village_id } )
+        for data in state_data:
+            self.state_machines.append( StateMachine.create_from_db(self.village, data) )
         
     def _recursive_add_jobs(self, parent, job_def):
         if isinstance(job_def, tuple):
@@ -147,10 +156,11 @@ class JobManager():
                     
         elif isinstance(job_def, dict):
             job = Job.create(job_def)
-            self.jobs.append(job)
+            #self.jobs.append(job)
             
             sm = StateMachine_Job(self.village, {'start': { 'job': job } })
             sm.current_state['after_job_id'] = parent['_jid']
+            sm.current_state.save_data()
             self.state_machines.append(sm)
             return job
         
@@ -173,6 +183,8 @@ class StateMachine_Job(metaclass = StateMachine):
                 self.wait_for_conditions['job'] = self['job']
                 self.current_state = self.wait_for_conditions
                 
+        def data_updated(self):
+            self['job'] = Job.create(self['job'])
                 
     class wait_for_conditions(State):
         
@@ -197,6 +209,7 @@ class StateMachine_Job(metaclass = StateMachine):
                 self.cond_instances['quest_event'] = self.cond_quest_fulfilled().enqueue(self.village, self['conditions']['quest_event'])
             
             self.ready = True
+            self.save_data()
             self.check_execution()
             
         @condition_changes(ConditionQuestFulfilled)
@@ -214,6 +227,9 @@ class StateMachine_Job(metaclass = StateMachine):
         @condition_changes(ConditionBuildSlotAvailable)
         def cond_build_slot_available(self):
             self.check_execution()
+            
+        def data_updated(self):
+            self['job'] = Job.create(self['job'])
             
         def check_execution(self):
             if not self.ready:
@@ -239,37 +255,25 @@ class StateMachine_Job(metaclass = StateMachine):
                 else:
                     self.current_state = self.terminated
                 self.village.fire_event( Event(self.village, 'job_completed', datetime.now(), job=self['job']) )
+            else:
+                self.save_data()
             self.ready = True
                 
     class wait_for_build(State):
-                
+        
+        def transition(self):
+            self.save_data()
+        
         @listen_to('build')
         def on_build(self, event):
             if event.building == self['building'] and event.level == self['level']:
                 self.village.fire_event( Event(self.village, 'quest_fulfilled', datetime.now(), quest_name=self['quest_event']) )
                 
                 self.current_state = self.terminated
-                
+            
     class terminated(State):
         
         pass
-
-class StateMachine_Quests(metaclass = StateMachine):
-    
-    class start(State):
-        
-        def init(self):
-            if 'build_index' not in self:
-                self['build_index'] = 0
-        
-        @listen_to('idle')
-        def on_idle(self, event):
-            self.current_state = self.idle
-    
-    class idle(State):
-        
-        def transition(self):
-            print('start idling')
 
 if __name__ == '__main__':
     import pprint

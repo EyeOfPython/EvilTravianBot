@@ -57,52 +57,6 @@ def get(url):
 def rename_village(new_name):
     return Action(None, action.action_rename_current_village, [ new_name ])
 
-"""build_roman = ( [
-            { "name": "clay_pit", "level": 1, "actions": [ get("/statistiken.php") ] },
-            { "name": "clay_pit", "level": 1, "actions": [ rename_village("Bubber Duckery") ] },
-            { "name": "woodcutter", "level": 1, "actions": [ quest("World_02") ]},
-            { "name": "iron_mine", "level": 1, "actions": [ quest("Economy_01", after_job = True) ] },
-            { "name": "cropland", "level": 1 },
-            { "name": "iron_mine", "level" : 1 },
-            { "name": "cropland", "level": 1, "actions": [ quest("Economy_02") ] },
-            { "name": "clay_pit", "level": 1 },
-            { "name": "cropland", "level" : 1 },
-            { "name": "woodcutter", "level" : 1, "actions": [ quest("World_01") ] },
-            { "name": "cropland", "level" : 1 },
-            { "name": "woodcutter", "level" : 1, "delay": timedelta(seconds=30) },
-            { "name": "cropland", "level" : 1 },
-            { "name": "cropland", "level" : 2 },
-            { "name": "iron_mine", "level" : 1 },
-            { "name": "iron_mine", "level" : 1 },
-            { "name": "clay_pit", "level": 2, "actions": [ quest("Economy_04") ] },
-            { "name": "woodcutter", "level" : 2 },
-            { "name": "cropland", "level" : 2 },
-            { "name": "iron_mine", "level" : 2 },
-            { "name": "clay_pit", "level": 2, "actions": [ quest("Economy_05") ] },
-            { "name": "clay_pit", "level": 2 },
-            { "name": "woodcutter", "level" : 2 },
-            { "name": "cropland", "level": 2 },
-            { "name": "woodcutter", "level" : 2 },
-            { "name": "iron_mine", "level" : 2 },
-            { "name": "cropland", "level": 2 },
-            { "name": "clay_pit", "level": 2 },
-            { "name": "iron_mine", "level" : 2 },
-            { "name": "cropland", "level" : 2 },
-            { "name": "iron_mine", "level" : 2 },
-            { "name": "clay_pit", "level": 3, "actions": [ quest("Economy_08") ] }
-        ],
-
-        [
-            { "name": "main_building", "level": 2 },
-            { "name": "cranny", "level": 1 },
-            { "name": "main_building", "level": 3, "actions": [ quest("Battle_02") ] },
-            { "name": "granary", "level": 1, "actions": [ quest("World_03") ] },
-            { "name": "embassy", "level": 1, "actions": [ quest("Economy_03") ] },
-            { "name": "warehouse", "level": 1, "actions": [ quest("World_04"), get("/karte.php") ] },
-            { "name": "marketplace", "level": 1 }
-        ]
-    )"""
-
 ##### ROOT JOB #####
 
 @job('root')

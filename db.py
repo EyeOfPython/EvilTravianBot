@@ -109,6 +109,7 @@ class DBTable():
 
 users = DBTable()
 jobs = DBTable()
+states = DBTable()
 
 try:
     mongo_server = pymongo.MongoClient('localhost', 27017)
@@ -117,6 +118,7 @@ except:
 database = mongo_server.eviltravian
 users = database.users
 jobs = database.jobs
+states = database.states
 
 def get_gid_by_name(gname):
     try:
