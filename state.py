@@ -44,10 +44,10 @@ class State():
     def save_data(self):
         'Save the data of this state to the database.'
         dbdict = self.data.copy()
-        dbdict['_village'] = self.village.village_id
-        dbdict['_state_machine'] = self.__state_machine_name__
-        dbdict['_state'] = type(self).__name__
-        db.states.save(self.data)
+        dbdict['sm_village'] = self.village.village_id
+        dbdict['sm_state_machine'] = self.__state_machine_name__
+        dbdict['sm_state'] = type(self).__name__
+        db.states.save(dbdict)
         
     '''def load_data(self, data):
         data.pop('_state_machine', None)
@@ -65,9 +65,8 @@ class _StateMachineBase():
         for state_name, state_class in self.__state_classes__.items():
             self.states[state_name] = state_class(self, data.get(state_name, {}))
             
-            if (start_state_name is not None and state_name == start_state_name) or state_class == self.__start_state__:
+            if (start_state_name is not None and state_name == start_state_name) or (start_state_name is None and state_class == self.__start_state__):
                 self.current_state = self.states[state_name]
-                
         
     def transition_into(self, new_state):
         assert isinstance(new_state, State)
@@ -111,9 +110,10 @@ class StateMachine(type):
     @classmethod
     def create_from_db(cls, village, data):
         d = data.copy()
-        d.pop('_state_machine')
-        d.pop('_state')
-        sm = cls.state_machines[data['_state_machine']](village, { data['_state']: d }, data['_state'])
+        #d.pop('sm_state_machine')
+        #d.pop('sm_state')
+        sm = cls.state_machines[data['sm_state_machine']](village, { data['sm_state']: d }, data['sm_state'])
+        print(d, sm.current_state)
         sm.current_state.data_updated()
         return sm
     

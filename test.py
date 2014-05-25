@@ -9,7 +9,7 @@ import sys, os
 from job import JobReadInbox, JobOpenGoldMenu, JobSellResources
 
 if len(sys.argv) == 1:
-    name = "Hans_26"
+    name = "Hans_44"
 else:
     name = sys.argv[1]
 
@@ -45,7 +45,10 @@ server = (6, 'de')
 
 account = Account(server, name)
 
+print("start")
+
 #db.users.remove({}) # wipe users
+#db.states.remove({})
 
 jobs_from_db = True
 
@@ -74,15 +77,17 @@ first_village = next(iter(account.villages.values()))
 running = True
 
 jm = JobManager(first_village)
-if jobs_from_db:
+first_village.event_handlers.append(jm)
+if not jobs_from_db:
     jm.init_from_def(build_roman)
+    first_village.fire_event( Event(first_village, 'job_completed', datetime.now(), job=jm.root) )
 else:
     jm.init_from_db()
+    first_village.fire_event( Event(first_village, 'job_completed', datetime.now(), job=jm.root) )
     
-first_village.event_handlers.append(jm)
-
-first_village.fire_event( Event(first_village, 'job_completed', datetime.now(), job=jm.root) )
-
+#first_village.fire_event( Event(first_village, 'baum', datetime.now()) )
+#sys.exit()
+    
 while running:
     account.update()
     

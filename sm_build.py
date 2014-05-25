@@ -139,9 +139,12 @@ class JobManager():
         self._recursive_add_jobs(self.root, job_definition)
         
     def init_from_db(self):
-        state_data = db.states.find( { '_village': self.village.village_id } )
+        state_data = db.states.find( { 'sm_village': self.village.village_id } )
+        print(self.village.village_id)
         for data in state_data:
-            self.state_machines.append( StateMachine.create_from_db(self.village, data) )
+            sm = StateMachine.create_from_db(self.village, data)
+            sm.current_state.transition()
+            self.state_machines.append( sm )
         
     def _recursive_add_jobs(self, parent, job_def):
         if isinstance(job_def, tuple):
@@ -282,7 +285,7 @@ if __name__ == '__main__':
     from village import Village
     from account import Account
     vill = Village(Account((0,0), None), None, None, None)
-    jm = JobManager(vill, build_roman)
+    jm = JobManager(vill)
     pprint.pprint([ sm.current_state.data for sm in jm.state_machines ])
     print("-"*10)
     #jm.__on_event__(Event(vill, 'job_completed', None, job=jm.root))

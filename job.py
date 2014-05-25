@@ -94,9 +94,9 @@ class JobBuild(Job):
 @job('build_fields')
 class JobBuildFields(Job):
     
-    def __init__(self, job_dict):
+    def __init__(self, job_dict, additional_conditions={}):
         job_dict['repeat'] = True
-        super().__init__(job_dict)
+        super().__init__(job_dict, additional_conditions)
         
     @classmethod
     def get_next_field(cls, village):
