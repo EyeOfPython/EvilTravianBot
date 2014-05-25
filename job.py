@@ -81,8 +81,6 @@ class JobBuild(Job):
         
     def execute(self, village):
         village.build_building(self.get_build_id(), self['level'])
-        #if 'quest_event' in self:
-        #    village.fire_event(Event(village, 'quest_fulfilled', datetime.now(), quest_name=self['quest_event']))
         
     def get_build_id(self):
         return db.building_names[self['name']]
@@ -92,6 +90,49 @@ class JobBuild(Job):
             return 0
         
         return 1 if self.get_build_id() <= 4 else 2
+        
+@job('build_fields')
+class JobBuildFields(Job):
+    
+    def __init__(self, job_dict):
+        job_dict['repeat'] = True
+        super().__init__(job_dict)
+        
+    @classmethod
+    def get_next_field(cls, village):
+        '''
+        Calculates, which field to build next.
+        '''
+        resr_index = village.resources * village.production
+        
+        fewest_resource = min(range(4), key = lambda k: resr_index[k]) + 1
+
+        return min((bld for bld in village.resource_fields if bld[1] == fewest_resource),
+                   key = lambda bld: bld[2])
+        
+    def next_field(self, village):
+        self['next_field'] = self.get_next_field(village)
+        
+    def get_conditions(self, village):
+        if 'next_field' not in self:
+            self.next_field(village)
+            
+        build_db = db.buildings[self['next_field'][1]]
+            
+        cond = { 'resources': build_db['levels'][self['next_field'][2]-1]['r'],
+                 'build_slot_id': self.get_slot_id(village.account) }
+        cond.update(super().get_conditions(village))
+        return cond
+        
+    def get_slot_id(self, account):
+        if account.nation != 'roman':
+            return 0
+        
+        return 1
+        
+    def execute(self, village):
+        village.build_building(self['next_field'][1], self['next_field'][2])
+        self.next_field(village)
         
 @job('http')
 class JobHttp(Job):

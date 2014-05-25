@@ -77,7 +77,7 @@ build_roman = (
             { 'type': 'build', 'name': 'cropland', 'level': 5 },
             { 'type': 'build', 'name': 'grain_mill', 'level': 1, 'quest_event': 'Economy_11' },
             { 'type': 'build', 'name': 'cropland', 'level': 3 },
-            ## TODO: build all to 5
+            { 'type': 'build_fields' }
         ],
 
         [
@@ -247,7 +247,9 @@ class StateMachine_Job(metaclass = StateMachine):
                     cond.terminate()
                 self['job'].execute(self.village)
                 
-                if 'quest_event' in self['job'] and isinstance(self['job'], JobBuild):
+                if 'repeat' in self['job'] and self['job']['repeat']:
+                    self.current_state = self.wait_for_conditions
+                elif 'quest_event' in self['job'] and isinstance(self['job'], JobBuild):
                     self.wait_for_build['quest_event'] = self['job']['quest_event']
                     self.wait_for_build['building'] = self['job'].get_build_id()
                     self.wait_for_build['level'] = self['job']['level']

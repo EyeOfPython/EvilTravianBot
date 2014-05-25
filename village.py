@@ -51,16 +51,7 @@ class Village():
         
         self.suppress_refresh = False
 
-    def get_next_field(self):
-        '''
-        @deprecated: move this to AI
-        '''
-        resr_index = self.resources * self.production
-        
-        fewest_resource = min(range(4), key = lambda k: resr_index[k]) + 1
 
-        return min((bld for bld in self.resource_fields if bld[1] == fewest_resource),
-                   key = lambda bld: bld[2])
 
     def has_enough_resources(self, resr):
         return +(self.resources - resr) == (self.resources - resr)

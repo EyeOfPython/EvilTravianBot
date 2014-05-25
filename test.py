@@ -47,6 +47,8 @@ account = Account(server, name)
 
 #db.users.remove({}) # wipe users
 
+jobs_from_db = True
+
 if account.get_db() is None or account.get_db()['activated'] == False:
     
     print("need to register this account first:")
@@ -55,6 +57,7 @@ if account.get_db() is None or account.get_db()['activated'] == False:
         account.init_db(email, password, nation, proxies)
         account.load_db()
         action.action_register(account)
+        jobs_from_db = False
     
     print("wait for activation email to receive...")
     user_db = account.get_db()
@@ -70,7 +73,12 @@ first_village = next(iter(account.villages.values()))
 
 running = True
 
-jm = JobManager(first_village, build_roman)
+jm = JobManager(first_village)
+if jobs_from_db:
+    jm.init_from_def(build_roman)
+else:
+    jm.init_from_db()
+    
 first_village.event_handlers.append(jm)
 
 first_village.fire_event( Event(first_village, 'job_completed', datetime.now(), job=jm.root) )
