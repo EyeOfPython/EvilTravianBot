@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from account import Account
 import action
 import time
