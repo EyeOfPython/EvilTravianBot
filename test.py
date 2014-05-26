@@ -7,10 +7,9 @@ from sm_build import JobManager, build_roman
 from datetime import datetime
 from event import Event
 import sys, os
-from job import JobReadInbox, JobOpenGoldMenu, JobSellResources
 
 if len(sys.argv) == 1:
-    name = "Hans_44"
+    name = "Hansi_01"
 else:
     name = sys.argv[1]
 
@@ -39,7 +38,7 @@ http://217.76.38.69:3128
 http://81.198.230.182:8080
 """
 
-proxies = [ "http://217.76.38.69:3128" ]
+proxies = [ "http://81.198.230.182:8080" ]
 #proxies = [  ]
 
 server = (6, 'de')

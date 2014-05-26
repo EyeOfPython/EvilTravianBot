@@ -14,6 +14,8 @@ from condition import condition_changes, ConditionEnoughResources,\
     ConditionQuestFulfilled
 import db
 
+order_file = open('building_jobs.txt', 'w')
+
 build_roman = ( 
                
         # World quests       
@@ -249,6 +251,9 @@ class StateMachine_Job(metaclass = StateMachine):
                 for cond in self.cond_instances.values():
                     cond.terminate()
                 self['job'].execute(self.village)
+                global order_file
+                order_file.write('Job %s at %s \n' % (self['job'], datetime.now()))
+                order_file.flush()
                 
                 if 'repeat' in self['job'] and self['job']['repeat']:
                     self.current_state = self.wait_for_conditions
