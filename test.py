@@ -89,6 +89,10 @@ else:
 #sys.exit()
     
 while running:
-    account.update()
-    
+    try:
+        account.update()
+    except Exception as e:
+        print(e)
+        time.sleep(20)
+        
     time.sleep(0.05)

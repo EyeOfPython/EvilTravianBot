@@ -51,8 +51,6 @@ class Village():
         
         self.suppress_refresh = False
 
-
-
     def has_enough_resources(self, resr):
         return +(self.resources - resr) == (self.resources - resr)
 
@@ -130,7 +128,7 @@ class Village():
         if 'village' in pages:
             doc = pages['village']
             self.buildings = reader.read_buildings(doc)
-            
+        
     def refresh(self, *page_names):
         '''
         Refreshes all pages related with this village, or only 
@@ -148,6 +146,10 @@ class Village():
         self.read_content(pages)
         self.read_events(pages)
         
+        if not self.resources:
+            self.account.login()
+            self.refresh(*page_names)
+            
         print(self.events.build)
         
         self.new_refresh_time()
