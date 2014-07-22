@@ -174,6 +174,10 @@ class Village():
         self.read_content(pages)
         self.read_events(pages)
         
+        if not self.resources:
+            self.account.login()
+            self.refresh(*page_names)
+            
         print(self.events.build)
         
         if not self.resources or not self.production or not self.storage_capacity:
