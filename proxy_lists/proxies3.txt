@@ -1,0 +1,315 @@
+DL 1JSO GERMANY     90.136.223.98   8100    20:13   Busy    1.2.3   Timeout 12 h ** no -L -R 
+DK0NC #1    212.53.160.177      8177    20:06   Busy    1.2.3   Proxy NautiCom - maritime mobile service net, Port 8177, password: public, timeout: 90 Minutes  
+DB0SDA #9   137.226.79.108      8100    20:08   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #8   137.226.79.107      8100    20:11   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #7   137.226.79.106      8100    20:11   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #6   137.226.79.105      8100    20:11   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #5   137.226.79.104      8100    20:11   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #4   137.226.79.103      8100    20:08   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #3   137.226.79.102      8100    20:11   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #2   137.226.79.101      8100    20:15   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #1   137.226.79.100      8100    20:11   Ready   1.2.3   RWTH Aachen Uni 
+DB0SDA #10      137.226.79.109      8100    20:15   Ready   1.2.3   RWTH Aachen Uni 
+OK1PJV #2   90.179.33.117   8080    20:07   Busy    1.0.9   http://www.cbradio.cz/echoproxy, port 8080, no -R -L connections, tnx. (used by NX5N) 
+OE5STM      91.118.53.113   8100    20:12   Ready   1.2.3   http://www.tms-itdienst.at 
+PI4RAZ #4   62.177.212.84   8100    20:15   Ready   1.2.3   Echolink4.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #3   62.177.212.83   8100    20:15   Ready   1.2.3   Echolink3.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #2   62.177.212.82   8100    20:15   Busy    1.2.3   Echolink2.a1-systems.nl -- sysop PA3DFR -- 
+OK1PJV #8   77.78.107.129   8100    20:11   Busy    1.0.9   http://www.cbradio.cz/echoproxy, port 8100, no -R -L connections, tnx. (used by OK2JKD) 
+PI4RAZ #1   87.211.101.19   8100    20:12   Ready   1.2.3   Echolink1.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #9   62.177.204.173      8100    20:15   Ready   1.2.3   Echolink9.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #8   62.177.204.172      8100    20:15   Ready   1.2.3   Echolink8.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #7   82.204.15.84    8100    20:10   Busy    1.2.3   Echolink7.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #6   82.204.15.83    8100    20:11   Ready   1.2.3   Echolink6.a1-systems.nl -- sysop PA3DFR -- 
+PI4RAZ #10      62.177.204.174      8100    20:15   Ready   1.2.3   Echolink10.a1-systems.nl -- sysop PA3DFR -- 
+PE1RJV #50      elproxy50.pe1rjv.nl     8100    20:06   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #49      elproxy49.pe1rjv.nl     8100    20:05   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #48      elproxy48.pe1rjv.nl     8100    20:05   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #47      elproxy47.pe1rjv.nl     8100    20:05   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #46      elproxy46.pe1rjv.nl     8100    20:05   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #45      elproxy45.pe1rjv.nl     8100    20:05   Ready   1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #44      elproxy44.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #43      elproxy43.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #42      elproxy42.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #41      elproxy41.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - No Timeout - -L/R only! 
+PE1RJV #40      elproxy40.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #39      elproxy39.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #38      elproxy38.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #37      elproxy37.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #36      elproxy36.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #35      elproxy35.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #34      elproxy34.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #33      elproxy33.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #32      elproxy32.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #31      elproxy31.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - PA/ON only ! 
+PE1RJV #30      elproxy30.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #29      elproxy29.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #28      elproxy28.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #27      elproxy27.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #26      elproxy26.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #25      elproxy25.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #24      elproxy24.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #23      elproxy23.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #22      elproxy22.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #21      elproxy21.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #20      elproxy20.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #19      elproxy19.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #18      elproxy18.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #17      elproxy17.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #16      elproxy16.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #15      elproxy15.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #14      elproxy14.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #13      elproxy13.pe1rjv.nl     8100    20:15   Busy    1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #12      elproxy12.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #11      elproxy11.pe1rjv.nl     8100    20:15   Ready   1.2.3   1Gbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #3   elproxy3.pe1rjv.nl      8100    20:14   Busy    1.2.3   100Mbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #2   elproxy2.pe1rjv.nl      8100    20:15   Ready   1.2.3   100Mbit - 24/7 - Timeout 12 hours - No -L/R 
+PE1RJV #1   elproxy1.pe1rjv.nl      8100    20:15   Busy    1.2.3   100Mbit - 24/7 - Timeout 12 hours - No -L/R 
+DG0TD HB    93.204.203.47   8100    20:07   Busy    1.2.3   Proxy N/W Germany Bremen City 
+IQ2WK   37.187.195.166      8100    20:15   Busy    1.2.3   ONLY MEMBERS SEZ. C.I.S.A.R. MILANO 
+DG0TD HBV   91.55.119.246   8100    20:14   Busy    1.2.3   Proxy-Server N/W Germany Bremen/NORD VDSL 
+OK9DTZ #5   93.185.101.77   8100    20:15   Busy    1.2.3   Prague, CZ, 300min timeout, 1Gbps 
+OK9DTZ #2   93.185.101.74   8100    20:12   Busy    1.2.3   Prague, CZ, 300min timeout, 1Gbps 
+OK9DTZ #1   93.185.101.76   8100    20:10   Busy    1.2.3   Prague, CZ, 300min timeout, 1Gbps 
+DG0TD HS    91.44.204.57    8100    20:12   Ready   1.2.2   Proxy-Server N/E Germany BERTI 
+OK9DTZ #3   217.115.240.62      8100    20:13   Ready   1.2.3   Zlin, CZ, 120min timeout, 40Mbps 
+M6CND   5.77.53.133     8100    20:08   Busy    1.2.3   Echolink Proxy Hosted @ sorch.info 
+KK4DUY      pandora.draeath.net     8100    20:15   Busy    1.2.3   kk4duy@draeath.net 
+OZ1NKJ GRISEN   194.192.161.165     8100    20:06   Ready   1.2.3   http://www.jotajoti.dk (Denmark) 
+E71ETF-5    195.130.59.85   8100    20:08   Busy    1.2.3   All callsigns allowed, http://hamradio.etf.unsa.ba 
+E71ETF-4    195.130.59.84   8100    20:08   Busy    1.2.3   All callsigns allowed, http://hamradio.etf.unsa.ba 
+E71ETF-3    195.130.59.83   8100    20:08   Busy    1.2.3   All callsigns allowed, http://hamradio.etf.unsa.ba 
+E71ETF-2    195.130.59.82   8100    20:07   Ready   1.2.3   All E7 callsigns allowed, http://hamradio.etf.unsa.ba 
+E71ETF-1    195.130.59.81   8100    20:07   Busy    1.2.3   All E7 callsigns allowed, http://hamradio.etf.unsa.ba 
+ECHOLINK PL #10     46.171.107.221      8100    20:08   Ready   1.2.3   Jest OK :) 
+ECHOLINK PL #08     213.73.1.115    8100    20:08   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+ECHOLINK PL #07     213.73.1.114    8100    20:12   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+ECHOLINK PL #06     213.73.1.113    8100    20:09   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+ECHOLINK PL #05     213.73.1.112    8100    20:09   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+ECHOLINK PL #04     213.73.1.111    8100    20:08   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+ECHOLINK PL #03     213.73.1.110    8100    20:08   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+ECHOLINK PL #02     213.73.1.109    8100    20:08   Ready   1.2.3   Olsztyn, Poland - Only PL stations, -L, -R denied http://sp4.jestok.com (PZK Olsztyn) 
+SQ4OJD      176.97.254.44   8105    20:05   Ready   1.2.3   Allowed POLAND ONLY! 
+IS0GRB (*ITALY*) HIGH SPEED     is0grb.hopto.org    8100    20:14   Busy    1.2.3   IS0GRB High Speed (Cagliari -Sardinia island -Italy) - Timeout 1h: -[no -R -L connections] -Port 8100 -2 Internet Uplink: ADSL 24Mbps/1.3Mbps -SHDSL 2Mbps/2Mbps -Comment at is0grb@is0grb.it, www.is0grb.it 
+EUSKADI-SPAIN #4    81.39.177.7     8100    20:14   Ready   1.2.3   Proxy de EuskoByte. No estan permitidas las conexiones de Links ni Repetidores. Timeout: 1 hora. Haz un buen uso de el. 73's 
+EA5HKR-1    echolink.albabyte.com   8100    20:07   Busy    1.2.3   ALBACETE POWER 
+EA5GF-40    echoproxy40.ea5gf.es    8100    20:07   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-39    echoproxy39.ea5gf.es    8100    20:06   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-38    echoproxy38.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-37    echoproxy37.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-36    echoproxy36.ea5gf.es    8100    20:09   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-35    echoproxy35.ea5gf.es    8100    20:11   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-34    echoproxy34.ea5gf.es    8100    20:12   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-33    echoproxy33.ea5gf.es    8100    20:07   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-32    echoproxy32.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-31    echoproxy31.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-30    echoproxy30.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-29    echoproxy29.ea5gf.es    8100    20:14   Ready   1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-28    echoproxy28.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-27    echoproxy27.ea5gf.es    8100    20:13   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-25    echoproxy25.ea5gf.es    8100    20:07   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-24    echoproxy24.ea5gf.es    8100    20:14   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-23    echoproxy23.ea5gf.es    8100    20:12   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-22    echoproxy22.ea5gf.es    8100    20:14   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-21    echoproxy21.ea5gf.es    8100    20:09   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-20    echoproxy20.ea5gf.es    8100    20:15   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-19    echoproxy19.ea5gf.es    8100    20:07   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-18    echoproxy18.ea5gf.es    8100    20:09   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-17    echoproxy17.ea5gf.es    8100    20:15   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-16    echoproxy16.ea5gf.es    8100    20:06   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-15    echoproxy15.ea5gf.es    8100    20:14   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-14    echoproxy14.ea5gf.es    8100    20:12   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-13    echoproxy13.ea5gf.es    8100    20:15   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-12    echoproxy12.ea5gf.es    8100    20:11   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-11    echoproxy11.ea5gf.es    8100    20:12   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-10    echoproxy11.ea5gf.es    8100    20:09   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-9     echoproxy9.ea5gf.es     8100    20:09   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-7     echoproxy8.ea5gf.es     8100    20:14   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-6     echoproxy7.ea5gf.es     8100    20:09   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-5     echoproxy5.ea5gf.es     8100    20:10   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-4     echoproxy4.ea5gf.es     8100    20:12   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-3     echoproxy3.ea5gf.es     8100    20:11   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-2     echoproxy2.ea5gf.es     8100    20:11   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+EA5GF-1     echoproxy1.ea5gf.es     8100    20:15   Busy    1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+YO3KXL      141.85.43.57    8100    20:12   Ready   1.2.3   YO3KXL Team cristi@aprs.ro (YO3GWM) 
+US6IQ #9    109.72.122.74   8100    20:10   Ready   1.2.3   US6IQ Public Proxy Server #9 (no -L -R, Ukraine only). 
+US6IQ #8    109.72.122.73   443     20:10   Ready   1.2.3   US6IQ Public Proxy Server #8 (no -L -R, Ukraine only). 
+US6IQ #7    109.72.122.72   443     20:10   Ready   1.2.3   US6IQ Public Proxy Server #7 (no -L -R, Ukraine only). 
+US6IQ #6    109.72.122.71   8100    20:10   Ready   1.2.3   US6IQ Public Proxy Server #6 (no -L -R, Ukraine only). 
+US6IQ #5    109.72.122.69   8100    20:08   Ready   1.2.3   US6IQ Public Proxy Server #5 (no -L -R, Ukraine only). 
+US6IQ #4    109.72.122.68   443     20:10   Ready   1.2.3   US6IQ Public Proxy Server #4 (Ukraine only, timeout 300 min). 
+US6IQ #3    109.72.122.67   443     20:10   Busy    1.2.3   US6IQ Public Proxy Server #3 (Ukraine only, timeout 300 min). 
+US6IQ #2    109.72.122.66   8100    20:10   Busy    1.2.3   US6IQ Public Proxy Server #2 (Ukraine only, timeout 300 min). 
+US6IQ #1    109.72.122.65   8100    20:10   Ready   1.2.3   US6IQ Public Proxy Server #1 (Ukraine only, timeout 300 min). 
+US6IQ #12   109.72.122.77   8100    20:08   Ready   1.2.3   US6IQ Public Proxy Server #12 (no -L -R, Ukraine only). 
+US6IQ #11   109.72.122.76   8100    20:08   Ready   1.2.3   US6IQ Public Proxy Server #11 (no -L -R, Ukraine only). 
+US6IQ #10   109.72.122.75   8100    20:08   Ready   1.2.3   US6IQ Public Proxy Server #10 (no -L -R, Ukraine only). 
+EA5GF-26    echoproxy26.ea5gf.es    8100    20:13   Ready   1.2.3   Gigabit connection. Permanent stations to all destinations allowed. Thanks to ServiHosting. 
+HC6PE-ECUALINUX.COM     174.142.166.145     8100    20:07   Busy    1.2.3   All node types welcome, Montreal, 180min 
+KD6QPK-1    192.241.199.51      8100    20:12   Busy    1.2.3   All node types welcome, no time out, USA. Email cannona@gmail.com with issues or questions. 
+K2MFF #14   128.235.36.237      8100    20:11   Busy    1.2.3   Newark, New Jersey 
+K2MFF #13   128.235.36.236      8100    20:15   Busy    1.2.3   Newark, New Jersey 
+K2MFF #12   128.235.36.235      8100    20:15   Busy    1.2.3   Newark, New Jersey 
+K2MFF #11   128.235.36.234      8100    20:15   Busy    1.2.3   Newark, New Jersey 
+K2MFF #10   128.235.36.233      8100    20:11   Busy    1.2.3   Newark, New Jersey 
+K2MFF #09   128.235.36.232      8100    20:06   Busy    1.2.3   Newark, New Jersey 
+K2MFF #08   128.235.36.231      8100    20:11   Busy    1.2.3   Newark, New Jersey 
+K2MFF #07   128.235.36.230      8100    20:07   Busy    1.2.3   Newark, New Jersey 
+K2MFF #06   128.235.36.229      8100    20:06   Busy    1.2.3   Newark, New Jersey 
+K2MFF #05   128.235.36.228      8100    20:06   Busy    1.2.3   Newark, New Jersey 
+K2MFF #04   128.235.36.227      8100    20:15   Busy    1.2.3   Newark, New Jersey 
+K2MFF #03   128.235.36.226      8100    20:15   Busy    1.2.3   Newark, New Jersey 
+K2MFF #02   128.235.36.225      8100    20:15   Busy    1.2.3   Newark, New Jersey 
+N3QZR   24.102.200.254      8080    20:14   Busy    1.2.3   Port 8080 -- Eastern PA, USA 
+KB8UVN #012     67.77.115.183   8100    20:09   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #011     67.77.115.182   8100    20:14   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #010     67.77.115.181   8100    20:12   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #009     67.77.115.180   8100    20:14   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #008     67.77.115.179   8100    20:15   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #007     67.77.115.178   8100    20:14   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #006     67.77.115.177   8100    20:10   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #005     67.77.115.176   8100    20:08   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #004     204.210.166.190     8100    20:12   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #003     204.210.166.189     8100    20:12   Busy    1.2.3   Columbus, Ohio 
+KB8UVN #002     204.210.166.188     8100    20:13   Ready   1.2.3   Columbus, Ohio 
+KB8UVN #001     204.210.166.187     8100    20:12   Busy    1.2.3   Columbus, Ohio 
+NX9G-30     50.7.62.34      8100    20:07   Busy    1.2.3   CHICAGO, IL 
+WX4EMA - MACON GEORGIA      98.175.203.141      8100    20:12   Busy    1.2.3   Hosted by the City Macon Georgia 
+KB8UVN #055     162.218.93.166      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #054     162.218.93.165      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #053     162.218.93.164      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #052     162.218.93.163      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #051     162.218.93.162      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #050     162.218.93.161      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #049     162.218.93.160      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #048     162.218.93.159      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #047     162.218.93.158      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #046     162.218.93.157      8100    20:15   Busy    1.2.3   Los Angeles, California 
+GEM SPAIN #4    echoproxy4.gem-spain.org    8100    20:15   Ready   1.2.3   PROXY OFRECIDO POR EL EQUIPO DE GEM SPAIN. WWW.GEM-SPAIN.ORG  
+KB8UVN #165     162.218.90.192      8100    20:09   Busy    1.2.3   Buffalo, New York 
+KB8UVN #163     162.218.90.190      8100    20:09   Busy    1.2.3   Buffalo, New York 
+KB8UVN #155     162.218.90.56   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #154     162.218.90.55   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #153     162.218.90.54   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #152     162.218.90.53   8100    20:13   Busy    1.2.3   Buffalo, New York 
+KB8UVN #151     162.218.90.52   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #150     162.218.90.51   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #149     162.218.90.50   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #148     162.218.90.49   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #147     162.218.90.5    8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #146     162.218.90.48   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #137     162.218.90.194      8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #099     162.218.90.166      8100    20:06   Busy    1.2.3   Buffalo, New York 
+KB8UVN #130     162.218.90.42   8100    20:11   Busy    1.2.3   Buffalo, New York 
+KB8UVN #098     162.218.90.165      8100    20:06   Busy    1.2.3   Buffalo, New York 
+KB8UVN #129     162.218.90.41   8100    20:11   Busy    1.2.3   Buffalo, New York 
+KB8UVN #128     162.218.90.40   8100    20:11   Busy    1.2.3   Buffalo, New York 
+KB8UVN #127     162.218.90.4    8100    20:11   Busy    1.2.3   Buffalo, New York 
+KB8UVN #125     162.218.90.162      8100    20:08   Busy    1.2.3   Buffalo, New York 
+KB8UVN #124     162.218.90.161      8100    20:06   Busy    1.2.3   Buffalo, New York 
+KB8UVN #089     162.218.90.176      8100    20:12   Busy    1.2.3   Buffalo, New York 
+KB8UVN #120     162.218.90.157      8100    20:14   Busy    1.2.3   Buffalo, New York 
+KB8UVN #086     162.218.90.173      8100    20:13   Busy    1.2.3   Buffalo, New York 
+KB8UVN #085     162.218.93.156      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #081     162.218.93.152      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #117     162.218.90.154      8100    20:12   Ready   1.2.3   Buffalo, New York 
+KB8UVN #115     162.218.90.29   8100    20:10   Ready   1.2.3   Buffalo, New York 
+KB8UVN #114     162.218.90.28   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #078     162.218.93.149      8100    20:15   Busy    1.2.3   Los Angeles, California 
+KB8UVN #076     162.218.93.147      8100    20:15   Ready   1.2.3   Los Angeles, California 
+KB8UVN #070     162.218.93.106      8100    20:06   Busy    1.2.3   Los Angeles, California 
+KB8UVN #108     162.218.90.22   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #107     162.218.90.21   8100    20:10   Busy    1.2.3   Buffalo, New York 
+KB8UVN #104     162.218.90.171      8100    20:12   Busy    1.2.3   Buffalo, New York 
+KB8UVN #103     162.218.90.170      8100    20:07   Busy    1.2.3   Buffalo, New York 
+KB8UVN #102     162.218.90.169      8100    20:14   Ready   1.2.3   Buffalo, New York 
+KB8UVN #101     162.218.90.168      8100    20:15   Busy    1.2.3   Buffalo, New York 
+KB8UVN #063     162.218.93.118      8100    20:10   Ready   1.2.3   Los Angeles, California 
+HS1BTK MS/THA...( 1 )   118.172.199.21      8100    20:11   Busy    1.0.9   for User mode of MaeHongSon. Ham Club , ***THAILAND Only*** @ 0 min. 
+HS1BTK MS/THA...( 2 )   118.172.199.204     8100    20:06   Ready   1.0.9   for User mode of MaeHongSon. Ham Club , ***THAILAND Only*** @ 0 min. 
+*10WATTS* #1    223.204.150.43      8080    20:07   Ready   1.2.3   <>Thailand Chumphon proxy server <>  
+K7DGF-1 (LASVEGAS NV)   70.180.166.224      8100    20:09   Busy    1.2.3   PublicProxy 
+BI7KJP PROXY#2      183.54.14.109   8100    20:06   Ready   1.2.3   *GD callsign:BA7/BD7/BG7/BH7/BI7 Only* @30min.http://www.iEchoLink.com mail:bi7kjp@iecholink.com Thank you! 
+K6OJ #94    ELProxy94.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #93    ELProxy93.mtv.Turing.ORG    443     20:10   Ready   1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #92    ELProxy92.mtv.Turing.ORG    443     20:11   Ready   1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #91    ELProxy91.mtv.Turing.ORG    443     20:12   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #90    ELProxy90.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #89    ELProxy89.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #88    ELProxy88.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #87    ELProxy87.mtv.Turing.ORG    443     20:11   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #86    ELProxy86.mtv.Turing.ORG    443     20:12   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #85    ELProxy85.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #84    ELProxy84.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #83    ELProxy83.mtv.Turing.ORG    443     20:12   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #82    ELProxy82.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #81    ELProxy81.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #80    ELProxy80.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #79    ELProxy79.mtv.Turing.ORG    443     20:12   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #78    ELProxy78.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #77    ELProxy77.mtv.Turing.ORG    443     20:15   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #76    ELProxy76.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #75    ELProxy75.mtv.Turing.ORG    443     20:08   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #74    ELProxy74.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #73    ELProxy73.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #72    ELProxy72.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #71    ELProxy71.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #70    ELProxy70.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #69    ELProxy69.mtv.Turing.ORG    443     20:11   Ready   1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #68    ELProxy68.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #67    ELProxy67.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #66    ELProxy66.mtv.Turing.ORG    443     20:10   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+K6OJ #65    ELProxy65.mtv.Turing.ORG    443     20:11   Busy    1.2.3   Bandwidth Courtesy of Layer42 Networks & AE6CH (Loc CM87xk). 
+HS8EEX      118.173.85.243      8080    20:11   Ready   1.2.3   Echolink Proxy for hs8eex.Thailand Proxy Server.Can use 199 minutes.Comment at hs8eex@hotmail.com.Contact QSO at 145mhz Conference or http://www.145mhz.org.Thank you. 
+KB8UVN #045     199.68.199.50   8100    20:09   Busy    1.2.3   San Jose, California 
+KB8UVN #044     199.68.199.51   8100    20:13   Busy    1.2.3   San Jose, California 
+KB8UVN #043     199.68.199.52   8100    20:07   Busy    1.2.3   San Jose, California 
+KB8UVN #042     199.68.199.56   8100    20:08   Busy    1.2.3   San Jose, California 
+KB8UVN #041     199.68.199.57   8100    20:06   Busy    1.2.3   San Jose, California 
+KB8UVN #039     199.68.199.60   8100    20:15   Busy    1.2.3   San Jose, California 
+KB8UVN #038     199.68.199.61   8100    20:07   Ready   1.2.3   San Jose, California 
+KB8UVN #036     199.68.199.64   8100    20:11   Busy    1.2.3   San Jose, California 
+KB8UVN #035     199.68.199.65   8100    20:11   Busy    1.2.3   San Jose, California 
+KB8UVN #034     199.68.199.66   8100    20:14   Busy    1.2.3   San Jose, California 
+KB8UVN #033     199.68.199.68   8100    20:13   Ready   1.2.3   San Jose, California 
+KB8UVN #032     199.68.199.69   8100    20:13   Busy    1.2.3   San Jose, California 
+KB8UVN #031     199.68.199.70   8100    20:14   Busy    1.2.3   San Jose, California 
+KB8UVN #030     199.68.199.72   8100    20:15   Busy    1.2.3   San Jose, California 
+KB8UVN #029     199.68.199.74   8100    20:15   Busy    1.2.3   San Jose, California 
+KB8UVN #028     199.68.199.75   8100    20:12   Busy    1.2.3   San Jose, California 
+KB8UVN #027     199.68.199.76   8100    20:13   Busy    1.2.3   San Jose, California 
+KB8UVN #026     199.68.199.77   8100    20:09   Busy    1.2.3   San Jose, California 
+KB8UVN #025     199.68.199.79   8100    20:06   Busy    1.2.3   San Jose, California 
+KB8UVN #024     199.68.199.80   8100    20:12   Busy    1.2.3   San Jose, California 
+KB8UVN #023     199.68.199.81   8100    20:12   Busy    1.2.3   San Jose, California 
+KB8UVN #022     199.68.199.82   8100    20:07   Busy    1.2.3   San Jose, California 
+KB8UVN #020     199.68.199.85   8100    20:09   Busy    1.2.3   San Jose, California 
+KB8UVN #019     199.68.199.86   8100    20:15   Ready   1.2.3   San Jose, California 
+KB8UVN #018     199.68.199.87   8100    20:10   Ready   1.2.3   San Jose, California 
+KB8UVN #017     199.68.199.116      8100    20:07   Busy    1.2.3   San Jose, California 
+KB8UVN #016     199.68.199.144      8100    20:06   Busy    1.2.3   San Jose, California 
+KB8UVN #015     199.68.199.154      8100    20:09   Ready   1.2.3   San Jose, California 
+KB8UVN #014     199.68.199.176      8100    20:14   Busy    1.2.3   San Jose, California 
+KB8UVN #013     199.68.199.186      8100    20:15   Ready   1.2.3   San Jose, California 
+JH1PGO #8   203.152.222.78      443     20:10   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #7   203.152.222.77      443     20:15   Ready   1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #6   203.152.222.76      443     20:10   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #5   203.152.222.75      443     20:10   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #4   203.152.222.74      443     20:10   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #3   203.152.222.73      443     20:14   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #2   203.152.222.72      443     20:10   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+JH1PGO #1   203.152.222.71      443     20:10   Busy    1.2.3   http://echolink.pgo.sytes.net/ [Puppy LiveCD, MicroSD starting without HDD, Timeout 3hours No -L/R] 
+DB0TV HAMNET #2     db0tv.ampr.org      8110    20:07   Ready   1.2.3   HAMNET Proxy Server (timeout 12h, no -L/R) 
+DB0TV HAMNET #3     db0tv.ampr.org      8120    20:07   Ready   1.2.3   HAMNET Proxy Server (timeout 12h, no -L/R) 
+DB0SDA_HAMNET_GW4   44.225.56.134   8105    20:08   Ready   1.2.3   Gateway from Hamnet to Internet 
+DB0SDA_HAMNET_GW3   44.225.56.134   8104    20:15   Ready   1.2.3   Gateway from Hamnet to Internet 
+DB0SDA_HAMNET_GW2   44.225.56.134   8101    20:12   Ready   1.2.3   Gateway from Hamnet to Internet 
+DB0SDA_HAMNET_GW1   44.225.56.134   8100    20:14   Ready   1.2.3   Gateway from Hamnet to Internet 
+JL1OWF      124.144.32.222      8100    20:08   Busy    1.2.3   All Single-User Only(no -L -R) 60min Time Out  
+PROXY-BRAZIL 06     187.50.254.65   8100    20:06   Ready   1.2.3   Not using -L -R | 180 minutos BraZil  
+PROXY-BRAZIL 05     187.50.254.64   8100    20:12   Ready   1.2.3   Not using -L -R | 180 minutos BraZil  
+PROXY-BRAZIL 04     187.50.254.63   8100    20:06   Busy    1.2.3   Not using -L -R | 180 minutos BraZil  
+PROXY-BRAZIL 03     187.50.254.62   8100    20:06   Busy    1.2.3   Not using -L -R | 180 minutos BraZil  
+PROXY-BRAZIL 02     187.50.254.61   8100    20:06   Busy    1.2.3   Not using -L -R | 180 minutos BraZil  
+PROXY-BRAZIL 01     187.50.254.60   8100    20:10   Busy    1.2.3   Not using -L -R | 180 minutos BraZil  
+* BRASIL PY2HR      187.74.69.24    8100    20:07   Busy    1.2.3   ITAPEVA - SP (No -L or -R) TOT 60 min max.  

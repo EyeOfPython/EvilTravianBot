@@ -6,6 +6,9 @@ from urllib.parse import urlencode
 import reader
 
 import time
+from event import Event
+from log import logger
+import db
 
 reg_build_link = re.compile('dorf\d\.php\?a=\d{1,3}&amp;c=\w{6}(?!&amp;b)', re.M)
 
@@ -22,7 +25,7 @@ class Action(dict):
         self['msg'] = str(self.func_action) + " " + str(params)
 
     def execute(self, account = None):
-        print("execute action:", self.func_action.__name__, self.params)
+        logger.log_note("execute action", "Execute: %s(%s)" % (self.func_action.__name__, self.params))
         self.func_action(account or self.account, *self.params)
 
 def action_register(account):
@@ -34,7 +37,7 @@ def action_register(account):
     if '"success":true' in r.text:
         return True
     else:
-        print(r.text)
+        logger.log_error("register failed", "Registration failed:\n %s" % r.text)
         return False
 
 def action_activate(account, world_id, activation_code):
@@ -61,12 +64,11 @@ def action_quest(account, action, quest= None):
     if quest is not None:
         params["questTutorialId"] = quest
 
-    print(datetime.today(), "quest: ", action, quest)
     response = account.ajax_cmd("quest", params)
     if response.text == "":
-        raise ValueError("Ajax request failed at tutorial: action: %s, quest: %s" % (action, quest))
+        logger.log_error("ajax failed", "Ajax request failed at tutorial: action: %s, quest: %s" % (action, quest))
 
-    print(response.text)
+    logger.log_note("quest", response.text, title="Execute %s %s" % (action, quest))
 
 def action_build_up(account, bid):
     doc = account.request_GET("/build.php?id=%d" % bid)
@@ -75,8 +77,7 @@ def action_build_up(account, bid):
 
     try:
         link = '/' + reg_build_link.findall(contract)[0].replace('&amp;', '&')
-        
-        print(datetime.today(), "build up building: ", bid)
+        # TODO: log this
         
         account.request_GET(link, createDom=False)
 
@@ -93,7 +94,7 @@ def action_build_new(account, bid, gid):
     
     try:
         link = '/' + reg.findall(content)[0].replace('&amp;', '&')
-        print(datetime.today(), "build new building: ", bid, gid)
+        # TODO: log this
             
         account.request_GET(link)
         return True
@@ -108,24 +109,24 @@ def action_hero_attributes(account, resource, attack_behaviour, attributes):
     response = account.ajax_cmd("saveHeroAttributes", params)
     
     
-def action_adventure(account):
+def action_adventure(village):
 
-    doc = account.request_GET("/hero_adventure.php")
+    doc = village.account.request_GET("/hero_adventure.php")
 
-    adventures = doc.find("form#adventureListForm tr td.goTo a")
+    adventures = doc.find("form#adventureListForm tr")
 
     try:
         adventure = next(adventures)
+        link = "/" + adventure.find("td.goTo a").attr("href").replace('&amp;', '&')
+        timer = datetime.strptime(adventure.find("td.moveTime span").text().strip(), "%H:%M:%S") - datetime(1900, 1, 1)
     except:
         print("no adventures found")
-
-    link = "/" + adventure.attr("href").replace('&amp;', '&')
-
+        return
     print(datetime.today(), "start adventure")
     
-    account.request_GET(link)
-    account.submit_form("form.adventureSendButton", {}, "/start_adventure.php")
-
+    village.account.request_GET(link)
+    doc2 = village.account.submit_form("form.adventureSendButton", {}, "/start_adventure.php")
+    
 def action_apply_item(account, item, amount):
     "cmd=heroInventory&id=353199&drid=bag&amount=1&a=98565&c=c779c8&ajaxToken=bc2a6d69c417002631d5a364b89a9132"
     account.ajax_cmd("heroInventory", { 'id': item.id, 'drid': 'bag', 'amount': amount, 'a': account.hero.item_a, 'c': account.hero.item_c })

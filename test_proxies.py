@@ -7,13 +7,14 @@ Created on 18.04.2014
 import requests
 import re
 import os
+import http.server
 
 proxies = [ ]
 
 os.environ['HTTP_PROXY'] = ''
 
 def read_proxies(path):
-    text = open("proxies.txt").read()
+    text = open(path).read()
     regex = re.compile("(\d*\.\d*\.\d*\.\d*)\s+(\d*)")
     for match in regex.finditer(text):
         proxies.append("http://%s:%s" % (match.group(1), match.group(2)))
@@ -21,7 +22,7 @@ def read_proxies(path):
     for match in regex.finditer(text):
         proxies.append("http://%s" % (match.group(0)))
 
-def test_proxy(proxy_url, timeout=0.2):
+def test_proxy(proxy_url, timeout=0.4):
     session = requests.Session()
     session.proxies = { "http": proxy_url, "https": proxy_url }
     try:
@@ -39,7 +40,8 @@ def test_proxy(proxy_url, timeout=0.2):
         return False
 
 if __name__ == '__main__':
-    read_proxies("proxies.txt")
+    #read_proxies("proxy_lists/proxies4.txt")
+    read_proxies("tested_proxies.txt")
     #proxies = ["http://94.23.244.96:3128"]
     for proxy in proxies:
         if test_proxy(proxy):

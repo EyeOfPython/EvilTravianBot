@@ -6,6 +6,7 @@ import random
 import action
 import db
 import traceback
+from log import logger
 
 class Village():
 
@@ -51,8 +52,6 @@ class Village():
         
         self.suppress_refresh = False
 
-
-
     def has_enough_resources(self, resr):
         return +(self.resources - resr) == (self.resources - resr)
 
@@ -64,11 +63,9 @@ class Village():
         try:
             return timedelta(hours=max(needed / (self.production + Resources((0.00001,)*4))))
         except:
-            print(traceback.format_exc())
-            print("resr:", resr)
-            print("self.resources", self.resources)
-            print("self.production", self.production)
-            return timedelta(min=1)
+            logger.log_error("production calculation failed", "resr: %s \n self.resources: %s \n self.production: %s" % (resr, self.resources, self.production))
+            raise
+            return timedelta(minutes=1)
         
     def get_build_events_for_slot(self, slot_id):
         if slot_id == 0:
@@ -123,14 +120,34 @@ class Village():
             self.resource_fields = reader.read_resource_fields(doc)
             self.resources = Resources(reader.read_resources(doc))
             self.production = Resources(reader.read_production(doc))
-            self.storage_capacity = Resources(reader.read_storage_capacity(doc))
-            self.name = reader.read_villages(doc, True)[0]['name']
+            if not self.resources or not self.production:
+                logger.log_error("page error", [ "%s: %s" % (t, p.find("html").html().strip()) for t,p in pages.items() ], 'Could not fetch village data')
+                
+            try:
+                self.storage_capacity = Resources(reader.read_storage_capacity(doc))
+                self.name = reader.read_villages(doc, True)[0]['name']
+            except Exception as e:
+                traceback.print_exc()
+                self.storage_capacity = []
+                self.name = ""
         
         # dorf2.php
         if 'village' in pages:
             doc = pages['village']
             self.buildings = reader.read_buildings(doc)
-            
+    
+    def save_status(self):
+        status = db.status.find_one({'village': self.village_id}) or {}
+        status['village'] = self.village_id
+        status['resource_fields'] = self.resource_fields
+        status['buildings'] = self.buildings
+        status['resources'] = self.resources
+        status['production'] = self.production
+        status['storage_capacity'] = self.storage_capacity
+        status['name'] = self.name
+        status['build_events'] = [ dict(village=event.village.name, name=event.name, time=event.time, **event.data) for event in self.events.build ]
+        db.status.save(status)
+    
     def refresh(self, *page_names):
         '''
         Refreshes all pages related with this village, or only 
@@ -138,17 +155,31 @@ class Village():
         '''
         if self.suppress_refresh:
             return
-        print('refreshing', page_names, 'at', datetime.now())
+        logger.log_note('refresh', 'refreshing %s' % str(page_names))
         pages = {}
         page_names = page_names or self.url_mapping.keys()
         for page_name in page_names:
             doc = self.account.request_GET(self.url_mapping[page_name])
+            if 'type="password"' in doc.find("html").html():
+                logger.log_info("logout", "Logout detected")
+                self.account.clear_cookie()
+                self.account.login()
+                self.account.save_cookie()
+                self.next_refresh_time = datetime.now() + timedelta(seconds=30)
+                
+                return
+                
             pages[page_name] = doc
             
         self.read_content(pages)
         self.read_events(pages)
         
         print(self.events.build)
+        
+        if not self.resources or not self.production or not self.storage_capacity:
+            logger.log_error("page error", [ "%s: %s" % (t, p.find("html").html().strip()) for t,p in pages.items() ], 'Could not fetch village data')
+            
+        self.save_status()
         
         self.new_refresh_time()
         
@@ -178,7 +209,7 @@ class Village():
             self.refresh()
             
     def fire_event(self, event):
-        print("event %s got fired! %s" % (event.name, event))
+        logger.log_note("event fired", "event %s got fired! %s" % (event.name, event))
         
         pages = self.event_refresh_pages.get(event.name, None)
         if pages is not None:
@@ -186,7 +217,7 @@ class Village():
                 self.refresh(*pages)
             except Exception as e:
                 print("could not refresh due to connection issues.")
-                print(e)
+                print(traceback.format_exc())
         for event_handler in self.event_handlers:
             event_handler.__on_event__(event)
             
@@ -212,16 +243,17 @@ class Village():
                 if gid == 0:
                     bld_bid = bid
                     bld_new = True
-                    print("building gid %d lvl %d new on %d" % (bld_gid, bld_lvl, bld_bid))
                     break
                 
         if bld_new is None:
-            print("Nothing to build found! ")
+            logger.log_error("build not found", "Nothing to build found! ")
             return False
 
         if bld_new == True:
+            logger.log_info("build", "Building %s new lvl %s at %s" % (db.buildings[bld_gid]['gname'], bld_lvl, bld_bid) )
             action.action_build_new(self.account, bld_bid, bld_gid)
         else:
+            logger.log_info("build", "Building %s up from lvl %s to %s at %s" % (db.buildings[bld_gid]['gname'], from_lvl, bld_lvl, bld_bid) )
             action.action_build_up(self.account, bld_bid)
             
         self.fire_event(Event(self, 'resources_spent', datetime.now()))

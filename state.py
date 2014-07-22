@@ -47,7 +47,7 @@ class State():
         dbdict['sm_village'] = self.village.village_id
         dbdict['sm_state_machine'] = self.__state_machine_name__
         dbdict['sm_state'] = type(self).__name__
-        db.states.save(dbdict)
+        self['_id'] = db.states.save(dbdict)
         
     '''def load_data(self, data):
         data.pop('_state_machine', None)

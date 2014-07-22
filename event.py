@@ -6,6 +6,7 @@ class EventSet():
         self.build  = set()
         self.troops = set()
         self.train  = set()
+        self.adventure_return = set()
         
         self.next = None
         
@@ -13,7 +14,7 @@ class EventSet():
         return "EventSet(%s)" % self.__dict__
     
     def _sets(self):
-        return [ self.build, self.troops, self.train ]
+        return [ self.build, self.troops, self.train, self.adventure_return ]
     
     def update_next(self):
         self.next = None

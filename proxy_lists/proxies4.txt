@@ -1,0 +1,99 @@
+IP-Adresse  Port    Standort    Stand   HTTP    Stand   HTTPS   Stand
+ 114.80.136.112      7780   China    China, Shanghai    21.07.2014 20:43    Valid   20.07.2014 09:40    Valid   21.07.2014 20:43
+ 221.176.14.72       80     China    China, unknown     21.07.2014 18:47    Valid   28.06.2014 09:25    Valid   13.06.2014 18:40
+ 202.59.160.10       8080   Indonesia    Indonesia, Jakarta     21.07.2014 18:31    Valid   21.07.2014 18:30    Unreachable     21.07.2014 18:31
+ 60.161.14.77    8001   China    China, unknown     21.07.2014 18:29    Valid   21.07.2014 18:28    Unreachable     08.07.2014 14:30
+ 202.43.188.31       8080   Indonesia    Indonesia, unknown     21.07.2014 18:27    Unreachable     18.07.2014 20:27    Valid   21.07.2014 18:27
+ 222.87.129.29       80     China    China, Guiyang     21.07.2014 17:35    Unreachable     18.07.2014 19:35    Valid   14.07.2014 10:27
+ 222.218.152.36      9999   China    China, unknown     21.07.2014 17:27    Valid   21.07.2014 17:26    Valid   21.07.2014 17:27
+ 84.50.44.92     3128   Estonia      Estonia, Tallinn   21.07.2014 16:42    Valid   21.07.2014 16:41    Unreachable     18.07.2014 18:41
+ 203.146.82.253      80     Thailand     Thailand, Bangkok      21.07.2014 16:36    Valid   14.07.2014 09:27    Unreachable     08.12.2013 19:55
+ 59.46.220.214       9000   China    China, Dalian      21.07.2014 16:27    Unreachable     21.07.2014 16:27    Valid   11.07.2014 10:35
+Anzeige
+ 213.181.73.145      8080   Nigeria      Nigeria, unknown   21.07.2014 16:21    Valid   20.07.2014 05:22    Valid   20.07.2014 05:22
+ 203.146.82.253      3128   Thailand     Thailand, Bangkok      21.07.2014 15:40    Valid   14.07.2014 08:31    Unreachable     08.12.2013 19:40
+ 186.42.225.189      3128   Ecuador      Ecuador, unknown   21.07.2014 14:49    Valid   18.07.2014 16:45    Unreachable     08.12.2013 19:17
+ 58.242.249.31       24184      China    China, unknown     21.07.2014 14:45    Unreachable     21.07.2014 14:43    Valid   20.07.2014 03:44
+ 107.0.69.189    3128   United States    United States, unknown     21.07.2014 14:42    Valid   21.07.2014 14:40    Unreachable     08.12.2013 19:16
+ 201.210.25.227      3128   Venezuela    Venezuela, unknown     21.07.2014 14:40    Valid   21.07.2014 14:38    Valid   21.07.2014 14:40
+ 190.122.186.224     8080   Guatemala    Guatemala, unknown     21.07.2014 14:34    Valid   21.07.2014 14:32    Unreachable     18.07.2014 16:31
+ 58.242.249.31       30383      China    China, unknown     21.07.2014 13:41    Valid   28.06.2014 04:24    Unreachable     21.07.2014 13:41
+ 58.242.249.31       10851      China    China, unknown     21.07.2014 13:39    Valid   11.07.2014 08:22    Unreachable     20.07.2014 02:38
+ 58.242.249.31       29786      China    China, unknown     21.07.2014 13:36    Valid   04.07.2014 00:37    Unreachable     21.07.2014 13:36
+Nebenbei Geld verdienen - Lassen Sie Ihren Computer für sich Arbeiten
+Anzeige
+ 118.175.5.9     80     Thailand     Thailand, unknown      21.07.2014 13:36    Valid   04.07.2014 00:36    Valid   04.07.2014 00:36
+ 187.0.222.167       3128   Brazil   Brazil, Rio de Janeiro     21.07.2014 13:34    Valid   20.07.2014 02:33    Valid   20.07.2014 02:33
+ 218.92.227.165      29786      China    China, unknown     21.07.2014 13:25    Valid   15.07.2014 17:21    Valid   13.06.2014 13:23
+ 218.92.227.165      14856      China    China, unknown     21.07.2014 13:21    Valid   12.07.2014 18:30    Valid   13.06.2014 12:41
+ 218.92.227.165      10030      China    China, unknown     21.07.2014 13:21    Valid   15.06.2014 00:21    Valid   13.06.2014 12:41
+ 218.92.227.165      16385      China    China, unknown     21.07.2014 13:21    Valid   05.07.2014 11:21    Valid   11.07.2014 07:24
+ 218.92.227.165      12640      China    China, unknown     21.07.2014 13:21    Valid   20.07.2014 02:21    Valid   12.07.2014 18:30
+ 218.92.227.165      12483      China    China, unknown     21.07.2014 12:42    Valid   13.06.2014 12:38    Valid   18.07.2014 14:39
+ 218.92.227.165      23685      China    China, unknown     21.07.2014 12:42    Valid   13.06.2014 12:38    Valid   26.06.2014 15:43
+ 218.92.227.165      18943      China    China, unknown     21.07.2014 12:41    Valid   28.06.2014 03:22    Valid   05.07.2014 10:40
+tarifcheck24.de - Berufsunfähigkeit
+Anzeige
+ 218.92.227.165      24524      China    China, unknown     21.07.2014 12:41    Unreachable     21.07.2014 12:41    Valid   01.07.2014 01:35
+ 218.92.227.165      21571      China    China, unknown     21.07.2014 12:40    Valid   17.07.2014 03:34    Valid   03.07.2014 23:40
+ 218.92.227.165      10000      China    China, unknown     21.07.2014 12:40    Valid   29.06.2014 14:25    Valid   29.06.2014 14:25
+ 218.92.227.165      12946      China    China, unknown     21.07.2014 12:40    Valid   13.06.2014 12:38    Valid   05.07.2014 10:39
+ 218.92.227.165      18204      China    China, unknown     21.07.2014 12:36    Valid   12.07.2014 18:23    Valid   18.07.2014 14:34
+ 218.92.227.165      21724      China    China, unknown     21.07.2014 12:29    Valid   17.07.2014 03:24    Valid   12.07.2014 17:39
+ 190.122.186.210     8080   Guatemala    Guatemala, unknown     21.07.2014 12:28    Unreachable     02.07.2014 12:25    Valid   21.07.2014 12:28
+ 218.92.227.165      18378      China    China, unknown     21.07.2014 12:27    Valid   13.06.2014 12:25    Valid   20.07.2014 01:27
+ 190.122.185.203     8080   Guatemala    Guatemala, unknown     21.07.2014 12:27    Unreachable     11.07.2014 06:32    Valid   21.07.2014 12:27
+ 218.92.227.165      34034      China    China, unknown     21.07.2014 12:26    Valid   13.06.2014 12:23    Valid   09.07.2014 19:32
+extrafilm.de - Aktuelle Kampagne
+Anzeige
+ 218.92.227.165      13789      China    China, unknown     21.07.2014 12:26    Valid   17.07.2014 03:20    Unreachable     21.07.2014 12:26
+ 218.92.227.165      24599      China    China, unknown     21.07.2014 12:23    Valid   12.07.2014 17:32    Valid   17.07.2014 02:39
+ 218.92.227.165      18888      China    China, unknown     21.07.2014 12:21    Valid   15.07.2014 15:38    Valid   17.07.2014 02:38
+ 218.92.227.165      33965      China    China, unknown     21.07.2014 12:20    Valid   20.07.2014 01:20    Unreachable     18.07.2014 13:41
+ 218.92.227.165      13386      China    China, unknown     21.07.2014 11:43    Valid   15.07.2014 15:37    Valid   15.07.2014 15:38
+ 218.92.227.165      16107      China    China, unknown     21.07.2014 11:39    Valid   13.06.2014 11:36    Valid   28.06.2014 01:43
+ 218.92.227.165      17657      China    China, unknown     21.07.2014 11:39    Valid   01.07.2014 00:31    Valid   20.07.2014 00:38
+ 218.92.227.165      23684      China    China, unknown     21.07.2014 11:39    Valid   20.07.2014 00:37    Valid   18.07.2014 13:36
+ 190.29.24.23    8080   Colombia     Colombia, unknown      21.07.2014 11:37    Valid   18.07.2014 13:33    Valid   20.07.2014 00:36
+  203.201.163.122    8080   Indonesia    Indonesia, unknown     21.07.2014 11:32    Unreachable     17.07.2014 02:25    Valid   20.07.2014 00:32
+ 218.29.90.30    9999   China    China, unknown     21.07.2014 11:31    Valid   17.07.2014 02:24    Valid   17.07.2014 02:24
+ 58.242.249.31       19320      China    China, unknown     21.07.2014 11:29    Valid   20.07.2014 00:28    Unreachable     21.07.2014 11:29
+ 58.242.249.31       10871      China    China, unknown     21.07.2014 11:27    Valid   20.07.2014 00:26    Unreachable     21.07.2014 11:27
+ 110.77.136.102      3128   Thailand     Thailand, unknown      21.07.2014 11:27    Valid   17.07.2014 02:20    Unreachable     08.12.2013 18:38
+ 121.199.60.143      3128   China    China, unknown     21.07.2014 11:22    Valid   21.07.2014 11:22    Unreachable     08.12.2013 18:39
+ 58.242.249.31       18710      China    China, unknown     21.07.2014 11:20    Valid   17.07.2014 01:40    Valid   17.07.2014 01:39
+ 190.122.185.195     8080   Guatemala    Guatemala, unknown     21.07.2014 10:44    Unreachable     17.07.2014 01:38    Valid   21.07.2014 10:44
+ 58.242.249.31       17130      China    China, unknown     21.07.2014 10:43    Valid   17.07.2014 01:37    Unreachable     21.07.2014 10:43
+ 58.242.249.31       29832      China    China, unknown     21.07.2014 10:38    Valid   19.07.2014 23:37    Valid   21.07.2014 10:38
+www.klingel.de
+Anzeige
+ 58.242.249.31       10933      China    China, unknown     21.07.2014 10:32    Valid   18.07.2014 12:27    Valid   19.07.2014 23:33
+ 58.242.249.31       35098      China    China, unknown     21.07.2014 10:27    Valid   19.07.2014 23:27    Valid   21.07.2014 10:27
+ 58.242.249.31       18371      China    China, unknown     21.07.2014 10:27    Valid   19.07.2014 23:27    Valid   19.07.2014 23:27
+ 58.242.249.31       21725      China    China, unknown     21.07.2014 10:23    Valid   19.07.2014 23:22    Valid   21.07.2014 10:23
+ 58.242.249.31       34032      China    China, unknown     21.07.2014 10:23    Valid   19.07.2014 23:22    Valid   21.07.2014 10:23
+ 58.242.249.31       33944      China    China, unknown     21.07.2014 10:21    Valid   19.07.2014 23:21    Unreachable     18.07.2014 11:47
+ 58.242.249.31       23685      China    China, unknown     21.07.2014 10:20    Valid   19.07.2014 23:20    Unreachable     18.07.2014 11:45
+ 222.88.242.213      9999   China    China, unknown     21.07.2014 09:51    Valid   04.05.2014 22:34    Valid   01.06.2014 16:43
+ 202.69.105.238      3128   Indonesia    Indonesia, unknown     21.07.2014 09:40    Valid   21.07.2014 09:40    Valid   18.07.2014 11:32
+ 41.222.196.52       8080   Zaire    Zaire, unknown     21.07.2014 08:43    Valid   18.07.2014 10:34    Valid   18.07.2014 10:35
+Alle Festnetz-Tarife auf einen Blick
+Anzeige
+ 210.101.131.232     8080   Korea, Republic Of   Korea, Republic Of, Seoul      21.07.2014 06:27    Valid   20.06.2014 13:27    Valid   19.07.2014 19:28
+ 72.52.96.31     80     United States    United States, Austin      21.07.2014 02:27    Valid   12.07.2014 07:37    Unreachable     15.03.2011 19:31
+ 118.98.35.251       8080   Indonesia    Indonesia, Jakarta     21.07.2014 00:40    Valid   21.07.2014 00:40    Valid   19.07.2014 13:40
+ 88.198.64.141       8118   Germany      Germany, Gunzenhausen      20.07.2014 20:33    Valid   19.07.2014 09:32    Unreachable     22.04.2013 22:06
+ 109.175.8.53    8080   Bosnia and Herzegovina   Bosnia and Herzegovina, Sarajevo   20.07.2014 19:40    Valid   20.07.2014 19:39    Valid   20.07.2014 19:40
+ 125.214.163.2       8080   Sri Lanka    Sri Lanka, unknown     20.07.2014 19:23    Valid   19.07.2014 08:23    Unreachable     22.04.2013 21:50
+ 212.192.120.67      3128   Russian Federation   Russian Federation, Tomsk      20.07.2014 18:27    Valid   19.07.2014 07:26    Unreachable     22.04.2013 21:38
+ 218.91.206.146      8001   China    China, Haian   20.07.2014 18:20    Valid   20.07.2014 18:20    Valid   17.07.2014 19:40
+ 177.69.195.4    3128   Brazil   Brazil, Sao Paulo      20.07.2014 17:39    Valid   20.07.2014 17:38    Valid   14.07.2014 21:24
+ 202.106.16.36       3128   China    China, Beijing     20.07.2014 17:38    Valid   09.07.2014 00:37    Unreachable     22.04.2013 21:31
+tom-tailor.com - Ihr Onlineshop für sportliche, unkomplizierte Mode mit ausgewogenem Preis-Leistungsverhältnis
+Anzeige
+ 189.113.64.126      8080   Brazil   Brazil, Mage   20.07.2014 17:20    Unreachable     12.06.2014 17:21    Valid   16.07.2014 07:41
+ 109.175.8.45    8080   Bosnia and Herzegovina   Bosnia and Herzegovina, Sarajevo   20.07.2014 16:43    Unreachable     14.07.2014 20:30    Valid   19.07.2014 05:44
+ 202.118.236.130     3128   China    China, Harbin      20.07.2014 13:36    Valid   22.06.2014 18:32    Unreachable     22.04.2013 21:02
+ 1.179.147.2     8080   Thailand     Thailand, Bangkok      20.07.2014 13:31    Valid   20.07.2014 13:31    Valid   19.07.2014 02:32
+ 200.150.66.226      3128   Brazil   Brazil, unknown    20.07.2014 12:51    Valid   13.07.2014 05:35    Unreachable     22.04.2013 20:52
+ 89.251.103.130      8080   Russian Federation   Russian Federation, Novosibirsk    20.07.2014 12:47    Valid   20.07.2014 12:46    Unreachable     20.07.2014 12:47

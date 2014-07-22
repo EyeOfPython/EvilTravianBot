@@ -13,6 +13,7 @@ from condition import condition_changes, ConditionEnoughResources,\
     ConditionEnoughSpaceForResources, ConditionBuildSlotAvailable,\
     ConditionQuestFulfilled
 import db
+from log import logger
 
 order_file = open('building_jobs.txt', 'w')
 
@@ -100,7 +101,7 @@ build_roman = (
             { 'type': 'build', 'name': 'barracks', 'level': 1, 'quest_event': 'Battle_03' },
             { 'type': 'build', 'name': 'warehouse', 'level': 3, 'quest_event': 'Economy_09' },
             { 'type': 'build', 'name': 'main_building', 'level': 4 },
-            { 'type': 'build', 'name': 'main_building', 'level': 5, 'quest_event': 'World_05' },
+            { 'type': 'build', 'name': 'main_building', 'level': 5, 'quest_event': 'World_09' },
             { 'type': 'build', 'name': 'granary', 'level': 2 },
             { 'type': 'build', 'name': 'granary', 'level': 3, 'quest_event': 'Economy_10' },
         ],
@@ -142,7 +143,6 @@ class JobManager():
         
     def init_from_db(self):
         state_data = db.states.find( { 'sm_village': self.village.village_id } )
-        print(self.village.village_id)
         for data in state_data:
             sm = StateMachine.create_from_db(self.village, data)
             sm.current_state.transition()
@@ -245,15 +245,15 @@ class StateMachine_Job(metaclass = StateMachine):
             for k, cond in self.cond_instances.items():
                 c = c and cond.is_true()
                 cn[k] = cond.is_true()
-            print("*** check", self['job'], cn, self['conditions'], self.cond_instances)
+            logger.log_note("check condition", "Job: %s\n Fulfilled: %s\n %s\n %s" % (self['job'], cn, self['conditions'], self.cond_instances))
             if c:
-                print("execute job", self['job'])
+                logger.log_note("execute job", "Execute job: %s" % self['job'])
                 for cond in self.cond_instances.values():
                     cond.terminate()
                 self['job'].execute(self.village)
-                global order_file
-                order_file.write('Job %s at %s \n' % (self['job'], datetime.now()))
-                order_file.flush()
+                #global order_file
+                #order_file.write('Job %s at %s \n' % (self['job'], datetime.now()))
+                #order_file.flush()
                 
                 if 'repeat' in self['job'] and self['job']['repeat']:
                     self.current_state = self.wait_for_conditions

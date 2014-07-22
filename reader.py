@@ -181,6 +181,21 @@ def read_adventure_number(doc):
 
     return int(bubble)
 
+def read_adventures(doc):
+    """ Requires hero_adventure.php """
+
+    adventures = doc.find("form#adventureListForm tr")
+    
+    advs = []
+    
+    for adventure in adventures:
+        link = "/" + adventure.find("td.goTo a").attr("href").replace('&amp;', '&')
+        timer = datetime.strptime(adventure.find("td.moveTime span").text().strip(), "%H:%M:%S") - datetime(1900, 1, 1)
+        diff = int(adventure.find("td.difficulty img").attr("class")[-1])
+        advs.append({ 'link': link, 'timer': timer, 'difficulty': diff })
+        
+    return advs
+
 def read_hero(doc, hero):
     """ Requires hero_inventory.php """
     status_class = doc.find("div.heroStatusMessage img").attr("class")
@@ -261,6 +276,23 @@ def read_villages(doc, only_active=False):
         coord_y = int(clean_useless_entities(village.find("span.coordinateY").text())[:-1])
         villages.append({'village_id':village_id, 'name': name, 'coord': (coord_x, coord_y)})
     return villages
+
+def read_troop_movement_simple(doc):
+    """Requires a page of dorf1.php"""
+    movements = doc.find("table#movements tr")
+    
+    movs = []
+    
+    s = True
+    for mov in movements:
+        if s:
+            s = False
+            continue
+        time = datetime.strptime(mov.find("div.dur_r span").text(), "%H:%M:%S") - datetime(1900, 1, 1)
+        type1 = mov.find("td.typ img").attr("class")
+        movs.append({'type':type1, 'timer': time})
+        
+    return movs
 
 if __name__ == "__main__":
     import eviltravian

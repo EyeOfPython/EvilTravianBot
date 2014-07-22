@@ -11,6 +11,7 @@ import quest
 import re
 import reader
 from village import Village
+from log import logger
 
 class Account():
     '''
@@ -90,13 +91,13 @@ class Account():
 
         # perform login
         result = self.session.post(self.url + url, data=params, headers=headers)
+        logger.log_note("POST request", "POST issued for %s with %s" % (url, params))
 
         try:
             if createDom:
                 return HtmlDom().createDom(result.text)
         except:
-            print("failed reading page in POST " + url)
-            print(result.text[:1000])
+            logger.log_error("POST failed", result.text, title="failed reading page in POST %s" % url)
         
         return result
     
@@ -178,7 +179,7 @@ class Account():
         db.users.save(user_db)
         
     def login(self, doc_login = None):
-        print("logging in...")
+        logger.log_info("login", "logging in...")
         self.clear_cookie()
         doc = doc_login or self.request_GET("/dorf1.php")
 
@@ -197,13 +198,14 @@ class Account():
         params['lowRes'] = '1'
         params['s1'] = 'Einloggen'
         params['w'] = '1920:1080'
-        
-        print("POST", params)
 
         # perform login and return village overview
         doc = self.request_POST("/dorf1.php", params)
         self.ajax_token = reader.read_ajax_token(doc)
         return doc
+    
+    def logout(self):
+        self.request_GET("/logout.php", createDom=False)
     
     def loadup(self):
         """
@@ -220,7 +222,7 @@ class Account():
             self.save_cookie()
             
             if not len(reader.read_resource_fields(doc_resources)):
-                print("login failed!")
+                logger.log_error("login failed", "The login failed")
         else:
             self.ajax_token = reader.read_ajax_token(doc_resources)
         
@@ -253,7 +255,7 @@ class Account():
         
         village = self.villages[active_village['village_id']]
         if active_village['name'] != village.name:
-            print("Village %s renamed to %s" % (village.name, active_village['name']))
+            logger.log_info("village renamed", "Village %s renamed to %s" % (village.name, active_village['name']))
         village.name = active_village['name']
         
         village.read_content(pages)

@@ -17,3 +17,4 @@ class StateMachine_Adventure(metaclass=StateMachine):
             
     class wait_for_hero(State):
         
+        

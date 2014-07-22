@@ -110,6 +110,8 @@ class DBTable():
 users = DBTable()
 jobs = DBTable()
 states = DBTable()
+log = DBTable()
+status = DBTable()
 
 try:
     mongo_server = pymongo.MongoClient('localhost', 27017)
@@ -119,10 +121,13 @@ database = mongo_server.eviltravian
 users = database.users
 jobs = database.jobs
 states = database.states
+log = database.log
+status = database.status
 
 def get_gid_by_name(gname):
+    from log import logger
     try:
         return next(bld['gid'] for bld in buildings.values() if bld['gname'] == gname)
     except:
-        print(gname)
+        logger.log_error("invalid gname", "Building name '%s' is invalid." % gname)
     
