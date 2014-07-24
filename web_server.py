@@ -66,7 +66,13 @@ not filter: <input type="text" name="not_filter" />
         
         
     def view_status(self, r, q):
-        status = db.status.find_one({})
+        if 'vid' in q:
+            status = db.status.find_one({'village':q['vid'][0]})
+        else:
+            for status in db.status.find():
+                #print(status)
+                r.append( '{name}: <a href="/status?vid={village}">{village}</a><br/>'.format(**status))
+            return
         r.append('<h1>Status for %s (%s)</h1>' % (status['name'], status['village']))
         r.append('<table>')
         r.append('<tr><td></td><td>Wood</td><td>Clay</td><td>Iron</td><td>Grain</td></tr>')

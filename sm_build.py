@@ -66,7 +66,7 @@ build_roman = (
             { 'type': 'build', 'name': 'cropland', 'level' : 3 },
             { 'type': 'build', 'name': 'iron_mine', 'level' : 3 },
             { 'type': 'build', 'name': 'clay_pit', 'level': 3 }, 
-            { 'type': 'build', 'name': 'cropland', 'level' : 2 },
+            { 'type': 'build', 'name': 'cropland', 'level' : 3 },
             { 'type': 'build', 'name': 'clay_pit', 'level': 3 },
             { 'type': 'build', 'name': 'woodcutter', 'level' : 3 },
             { 'type': 'build', 'name': 'cropland', 'level': 3 },

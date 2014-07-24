@@ -37,5 +37,5 @@ class Logger():
         
 logger = Logger()
 
-#if __name__ == '__main__':
-#    db.status.remove({})
+if __name__ == '__main__':
+    print( list( db.users.find() ) )
