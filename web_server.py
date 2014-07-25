@@ -140,7 +140,7 @@ if __name__ == '__main__':
     import socketserver
     
     port = 1338
-    BotWebServer.account = Account((3, 'de'), 'Sof4')
+    BotWebServer.account = Account((3, 'de'), 'Gl4ss')
     
     Handler = BotWebServer
     httpd = socketserver.TCPServer(("", port), Handler)
