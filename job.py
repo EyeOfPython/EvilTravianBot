@@ -131,7 +131,7 @@ class JobBuildFields(Job):
         return 1
         
     def execute(self, village):
-        village.build_building(self['next_field'][1], self['next_field'][2])
+        village.build_building(self['next_field'][1], self['next_field'][2]+1)
         self.next_field(village)
         
 @job('http')
