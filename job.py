@@ -12,6 +12,7 @@ import time
 import random
 from event import Event
 import reader
+from log import logger
 
 job_classes = {}
 
@@ -81,6 +82,9 @@ class JobBuild(Job):
         
     def execute(self, village):
         village.build_building(self.get_build_id(), self['level'])
+        pages = village.refresh(('resources',))
+        if not any( event.name == self['name'] and event.level == self['level'] for event in village.events.build ):
+            logger.log_error('build failed', pages['resources'], title='Could not build %s level %s.' % (self['name'], self['level']))
         
     def get_build_id(self):
         return db.building_names[self['name']]
@@ -131,8 +135,12 @@ class JobBuildFields(Job):
         return 1
         
     def execute(self, village):
-        village.build_building(self['next_field'][1], self['next_field'][2])
+        village.build_building(self['next_field'][1], self['next_field'][2]+1)
         self.next_field(village)
+        pages = village.refresh(('resources',))
+        if not any( db.building_names[event.name] == self['next_field'][1] and event.level == self['next_field'][2]+1 for event in village.events.build ):
+            logger.log_error('build failed', pages['resources'], title='Could not build %s level %s.' % (db.buildings[self['next_field']]['gname'], self['level']))
+        
         
 @job('http')
 class JobHttp(Job):

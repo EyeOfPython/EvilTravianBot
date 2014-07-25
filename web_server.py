@@ -1,3 +1,4 @@
+#/usr/bin/python3
 '''
 Created on 22.07.2014
 
@@ -32,6 +33,10 @@ class BotWebServer(SimpleHTTPRequestHandler):
         
     def view_logs(self, r, q):
         tfilter = q.get('filter', [''])[0].split(',')
+        if 'account' not in q:
+            r.append('<form>Account: <input type="text" name="account" /></form>')
+            return
+        account_name = q['account'][0]
         
         if tfilter and not tfilter[0]:
             tfilter = []
@@ -41,7 +46,7 @@ class BotWebServer(SimpleHTTPRequestHandler):
         r.append( str(tfilter) )
         r.append( str(not_filter)  )
         r.append('<table>')
-        for log in db.log.find({'log_name': self.account.user_name}):
+        for log in db.log.find({'log_name': account_name}):
             if tfilter and not all([ f in log['type'] for f in tfilter ]):
                 continue
             if not_filter and any([ f in log['type'] for f in not_filter]):
@@ -63,8 +68,7 @@ not filter: <input type="text" name="not_filter" />
 <input type="submit" text="filter" />
 </form>
 ''')
-        
-        
+    
     def view_status(self, r, q):
         if 'vid' in q:
             status = db.status.find_one({'village':q['vid'][0]})
