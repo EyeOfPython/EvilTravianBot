@@ -187,6 +187,8 @@ class Village():
         
         self.new_refresh_time()
         
+        return pages
+        
     def new_refresh_time(self):
         self.next_refresh_time = datetime.now() + timedelta(minutes=random.random()*3+2)
             
