@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 '''
 Created on 22.07.2014
 
