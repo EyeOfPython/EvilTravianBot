@@ -110,6 +110,7 @@ while running:
         account.update()
     except Exception as e:
         traceback.print_exc()
+        logger.log_error('exception', traceback.format_exc(), str(e))
         time.sleep(10)
         
     time.sleep(0.05)
