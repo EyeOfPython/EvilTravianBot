@@ -84,7 +84,7 @@ class JobBuild(Job):
         village.build_building(self.get_build_id(), self['level'])
         pages = village.refresh('resources')
         if not any( event.building == self.get_build_id() and event.level == self['level'] for event in village.events.build ):
-            logger.log_error('build failed', pages['resources'], title='Could not build %s level %s.' % (self['name'], self['level']))
+            logger.log_error('build failed', pages['resources'].find('html').html(), title='Could not build %s level %s.' % (self['name'], self['level']))
         
     def get_build_id(self):
         return db.building_names[self['name']]
