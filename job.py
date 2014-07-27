@@ -123,7 +123,7 @@ class JobBuildFields(Job):
             
         build_db = db.buildings[self['next_field'][1]]
             
-        cond = { 'resources': build_db['levels'][self['next_field'][2]-1]['r'],
+        cond = { 'resources': build_db['levels'][self['next_field'][2]]['r'], # curr lvl +1
                  'build_slot_id': self.get_slot_id(village.account) }
         cond.update(super().get_conditions(village))
         return cond
