@@ -5,6 +5,7 @@ Created on 22.07.2014
 '''
 import db
 from datetime import datetime
+import time
 
 class Logger():
     
@@ -38,4 +39,6 @@ class Logger():
 logger = Logger()
 
 if __name__ == '__main__':
-    print( list( db.users.find() ) )
+    for l in db.log.find():
+        if datetime(*l['time']) > datetime(2014, 7, 27, 2, 27, 0):
+            db.log.remove({'_id':l['_id']})

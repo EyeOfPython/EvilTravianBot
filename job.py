@@ -139,11 +139,11 @@ class JobBuildFields(Job):
             self.next_field(village)
         logger.log_note('build field', 'Build field %s' % (self['next_field'],))
         village.build_building(self['next_field'][1], self['next_field'][2]+1)
-        self.next_field(village)
         pages = village.refresh('resources')
-        if not any( event.building == self['next_field'][1] and event.level == self['next_field'][2]+1 for event in village.events.build ):
+        if not village.events.build: #any( event.building == self['next_field'][1] and event.level == self['next_field'][2]+1 for event in village.events.build ):
             logger.log_error('build failed', pages['resources'].find('html').html(), title='Could not build %s level %s.' % (db.buildings[self['next_field'][1]]['gname'], self['next_field'][2]))
         
+        self.next_field(village)
         
 @job('http')
 class JobHttp(Job):
