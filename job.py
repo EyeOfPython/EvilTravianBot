@@ -137,7 +137,7 @@ class JobBuildFields(Job):
     def execute(self, village):
         if not self['next_field'] in village.resource_fields:
             self.next_field(village)
-        logger.log_note('build field', 'Build field %s' % self['next_field'])
+        logger.log_note('build field', 'Build field %s' % (self['next_field'],))
         village.build_building(self['next_field'][1], self['next_field'][2]+1)
         pages = village.refresh('resources')
         if not village.events.build: #any( event.building == self['next_field'][1] and event.level == self['next_field'][2]+1 for event in village.events.build ):
