@@ -40,8 +40,12 @@ def test_proxy(proxy_url, timeout=0.4):
         return False
 
 if __name__ == '__main__':
+    
+    read_proxies("proxy_lists/proxies.txt")
+    read_proxies("proxy_lists/proxies2.txt")
+    read_proxies("proxy_lists/proxies3.txt")
     #read_proxies("proxy_lists/proxies4.txt")
-    read_proxies("tested_proxies.txt")
+    #read_proxies("tested_proxies.txt")
     #proxies = ["http://94.23.244.96:3128"]
     for proxy in proxies:
         if test_proxy(proxy):
