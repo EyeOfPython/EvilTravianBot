@@ -51,7 +51,6 @@ class BotWebServer(SimpleHTTPRequestHandler):
                 continue
             if not_filter and any([ f in log['type'] for f in not_filter]):
                 continue
-            log['time'] = datetime(*log['time'])
             r.append( '<tr>')
             r.append( '''
 <td>{severity}</td>
