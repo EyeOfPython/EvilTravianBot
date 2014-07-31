@@ -38,20 +38,23 @@ class BotWebServer(SimpleHTTPRequestHandler):
             return
         account_name = q['account'][0]
         
+        after_time = datetime(1900,1,1)
+        before_time = datetime(2200,1,1)
+        if 'after_time' in q:
+            after_time = datetime(*[int(k or 0) for k in q['after_time'][0].split()])
+        if 'before_time' in q:
+            before_time = datetime(*[int(k or 0) for k in q['before_time'][0].split()])
         if tfilter and not tfilter[0]:
             tfilter = []
         not_filter = q.get('not_filter', [''])[0].split(',')
         if not_filter and not not_filter[0]:
             not_filter = []
-        r.append( str(tfilter) )
-        r.append( str(not_filter)  )
         r.append('<table>')
-        for log in db.log.find({'log_name': account_name}):
+        for log in db.log.find({'log_name': account_name, 'time':{'$gte':after_time,'$lt':before_time}}).sort([('time',1)]):
             if tfilter and not all([ f in log['type'] for f in tfilter ]):
                 continue
             if not_filter and any([ f in log['type'] for f in not_filter]):
                 continue
-            log['time'] = datetime(*log['time'])
             r.append( '<tr>')
             r.append( '''
 <td>{severity}</td>
@@ -66,6 +69,7 @@ class BotWebServer(SimpleHTTPRequestHandler):
 filter: <input type="text" name="filter" />
 not filter: <input type="text" name="not_filter" />
 <input type="submit" text="filter" />
+
 </form>
 ''')
     

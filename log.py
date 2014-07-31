@@ -5,6 +5,7 @@ Created on 22.07.2014
 '''
 import db
 from datetime import datetime
+import time
 
 class Logger():
     
@@ -21,7 +22,7 @@ class Logger():
         else:
             print(log_severity.upper(), log_type.title(), datetime.now(), "--", message)
         
-        self.table.insert({ "log_name": self.log_name, "severity": log_severity, "type": log_type, "message": message, "time": datetime.now().timetuple()[:6], "title": title })
+        self.table.insert({ "log_name": self.log_name, "severity": log_severity, "type": log_type, "message": message, "time": datetime.now(), "title": title })
         
     def log_error(self, log_type, message, title=None):
         self.log("error", log_type, message, title)
@@ -38,4 +39,4 @@ class Logger():
 logger = Logger()
 
 if __name__ == '__main__':
-    print( list( db.users.find() ) )
+    pass

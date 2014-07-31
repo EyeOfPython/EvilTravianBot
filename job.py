@@ -123,7 +123,7 @@ class JobBuildFields(Job):
             
         build_db = db.buildings[self['next_field'][1]]
             
-        cond = { 'resources': build_db['levels'][self['next_field'][2]-1]['r'],
+        cond = { 'resources': build_db['levels'][self['next_field'][2]]['r'], # curr lvl +1
                  'build_slot_id': self.get_slot_id(village.account) }
         cond.update(super().get_conditions(village))
         return cond
@@ -137,13 +137,14 @@ class JobBuildFields(Job):
     def execute(self, village):
         if not self['next_field'] in village.resource_fields:
             self.next_field(village)
-        logger.log_note('build field', 'Build field %s' % self['next_field'])
+        logger.log_note('build field', 'Build field %s' % (self['next_field'],))
         village.build_building(self['next_field'][1], self['next_field'][2]+1)
-        self.next_field(village)
         pages = village.refresh('resources')
-        if not any( event.building == self['next_field'][1] and event.level == self['next_field'][2]+1 for event in village.events.build ):
-            logger.log_error('build failed', pages['resources'].find('html').html(), title='Could not build %s level %s. %s' % (db.buildings[self['next_field'][1]]['gname'], self['next_field'][2], self['next_field'][0]))
-        
+
+        if not village.events.build: #any( event.building == self['next_field'][1] and event.level == self['next_field'][2]+1 for event in village.events.build ):
+            logger.log_error('build failed', pages['resources'].find('html').html(), title='Could not build %s level %s.' % (db.buildings[self['next_field'][1]]['gname'], self['next_field'][2]))
+
+        self.next_field(village)
         
 @job('http')
 class JobHttp(Job):
