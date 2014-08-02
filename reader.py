@@ -110,6 +110,19 @@ def read_production(doc):
 
     return production
 
+def read_production_boost(doc):
+    """ At any page """
+    
+    resrList = doc.find("ul#stockBar")
+
+    resources = []
+    
+    for resrElm in resrList.children():
+        if resrElm.attr('id').startswith("stockBarResource"):
+            resources.append(1.25 if resrElm.find("div.middle img.productionBoost").html() else 1)
+    
+    return resources
+
 def read_build_queue(doc):
     """ Requires dorf1.php or dorf2.php """
 
@@ -198,11 +211,23 @@ def read_adventures(doc):
 
 def read_hero(doc, hero):
     """ Requires hero_inventory.php """
+    from hero import ItemInventory
     status_class = doc.find("div.heroStatusMessage img").attr("class")
     status = hero_status.get(status_class, None)
 
     health = int(doc.find("div.powervalue span.value").text().replace("&#x202d;", "").replace("&#x202c;", "").replace("\u200e", "").replace("&#37;", "").strip())
     exp = int(doc.find("div.experience div.experience").text())
+
+    skill_table = doc.find("table#attributesOfHero")
+    hero.skill_points['power'] = int(skill_table.find("tr.power td.points").text())
+    hero.skill_points['off_bonus'] = int(skill_table.find("tr.offBonus td.points").text())
+    hero.skill_points['def_bonus'] = int(skill_table.find("tr.defBonus td.points").text())
+    hero.skill_points['production'] = int(skill_table.find("tr.productionPoints td.points").text())
+
+    for i, resr_radio in enumerate(doc.find("div#setResource div.resource input.radio")):
+        if resr_radio.attr('checked') == 'checked':
+            hero.production_slot = i
+            break
 
     m = reg_hero_inventory.search(doc.find("html").html())
     hero.culture_points = int(m.group('culturePoints'))
@@ -212,7 +237,7 @@ def read_hero(doc, hero):
     hero.inventory = []
     for item in reg_hero_items.findall(m.group('items')):
         m = reg_item.match(item)
-        #hero.inventory.append(ItemInventory(m))
+        hero.inventory.append(ItemInventory(m))
 
     hero.status = status
     hero.health = health
@@ -295,9 +320,17 @@ def read_troop_movement_simple(doc):
     return movs
 
 if __name__ == "__main__":
-    import eviltravian
-    evil = eviltravian.evil
-    evil.travian.load_cookie()
-    evil.load()
-    evil.travian.request_GET("/nachrichten.php")
-    print(read_inbox(evil.travian.current_page))
+    from account import Account
+    import log
+    import hero
+    log.logger.log_name = 'Gl4ss'
+    acc = Account((3,'de'),'Gl4ss')
+    acc.loadup()
+    #doc = acc.request_GET('/dorf1.php')
+    #print(read_production_boost(doc))
+    
+    doc = acc.request_GET('/hero_inventory.php')
+    h = hero.Hero()
+    read_hero(doc, h)
+    print(h)
+    print(h.get_production_bonus())
