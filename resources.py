@@ -1,5 +1,13 @@
 
 class Resources(tuple):
+    
+    def __new__(cls, d=None):
+        if d is not None:
+            d = list(d)
+            assert len(d) == 4, 'Four values have to be present, but %s are.' % (d,)
+            return super().__new__(cls, d)
+        
+        return super().__new__(cls, (0,0,0,0))
 
     def __add__(self, other):
         if isinstance(other, (list, tuple)):

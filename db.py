@@ -4,7 +4,7 @@ def read_csv():
     import csv
     
 
-    reader = csv.reader(open("data/builds.csv", "r"), delimiter=',')
+    reader = csv.reader(open("data/builds.csv", "r"), delimiter=';')
 
     buildings = { }
 
@@ -31,7 +31,23 @@ def read_csv():
                     'zdata':float(zdata if zdata else 0)
                 })
 
-    pickle.dump(buildings, open('data/builds.pickle', 'wb'))
+    #pickle.dump(buildings, open('data/builds.pickle', 'wb'))
+    
+    change_map = { 1: 18, 2: 35, 3: 39,  4: 38, 5: 28, 6: 15, 7: 11,
+               8: 17, 9: 26, 10: 41, 11: 24, 12: 25, 13: 10, 14: 27,
+               15: 34, 16: 23, 17: 40, 18: 22, 19: 32, 20: 36, 21: 29, 22: 30,
+               23: 37, 24: 19, 25: 33, 26: 13, 27: 32, 28: 20, 29: 14, 30: 16,
+               32: 21, 33: 1, 34: 2, 35: 3, 36: 4, 37: 8, 38: 7, 39: 5,
+               40: 6, 41: 7 }
+
+    new_buildings = {}
+    
+    for f, t in change_map.items():
+        b = buildings[f]
+        b['gid'] = t
+        new_buildings[t] = b
+    
+    pickle.dump(new_buildings, open('data/builds.pickle', 'wb'))
 
 #read_csv()
 try:
@@ -81,22 +97,6 @@ building_names = {
         'wonder_of_the_world': 40,
         'horse_drinking_trough': 41
     }
-    
-"""change_map = { 1: 18, 2: 35, 3: 39,  4: 38, 5: 28, 6: 15, 7: 11,
-               8: 17, 9: 26, 10: 41, 11: 24, 12: 25, 13: 10, 14: 27,
-               15: 34, 16: 23, 17: 40, 18: 22, 19: 32, 20: 36, 21: 29, 22: 30,
-               23: 37, 24: 19, 25: 33, 26: 13, 27: 32, 28: 20, 29: 14, 30: 16,
-               32: 21, 33: 1, 34: 2, 35: 3, 36: 4, 37: 8, 38: 7, 39: 5,
-               40: 6, 41: 7 }
-
-new_buildings = {}
-
-for f, t in change_map.items():
-    b = buildings[f]
-    b['gid'] = t
-    new_buildings[t] = b
-
-pickle.dump(new_buildings, open('data/builds.pickle', 'wb'))"""
 
 import pymongo
 
