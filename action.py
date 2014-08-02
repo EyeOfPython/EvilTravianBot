@@ -102,6 +102,7 @@ def action_build_new(account, bid, gid):
         return False
 
 def action_hero_attributes(account, resource, attack_behaviour, attributes):
+    'cmd=heroSetAttributes&resource=4&attackBehaviour=hide&attributes[power]=0&attributes[offBonus]=0&attributes[defBonus]=0&attributes[productionPoints]=1&ajaxToken=7aeac2a704ae8f60fb51045428071812'
     params = { 'resource': resource, 'attackBehaviour': attack_behaviour }
     for k,v in attributes.items():
         params['attributes[' + k +']'] = v

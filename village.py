@@ -7,6 +7,7 @@ import action
 import db
 import traceback
 from log import logger
+from village_state import VillageState
 
 class Village():
 
@@ -272,6 +273,9 @@ class Village():
         
     def get_bid_by_name(self, name):
         return self.get_bid_by_gid(db.building_names[name])
+        
+    def get_state(self):
+        return VillageState(self.account.get_state(), self.resources, self.resource_fields+self.buildings, None)
         
     def __repr__(self):
         return str(self)

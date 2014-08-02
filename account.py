@@ -12,6 +12,8 @@ import re
 import reader
 from village import Village
 from log import logger
+from hero import Hero
+from account_state import AccountState
 
 class Account():
     '''
@@ -36,6 +38,9 @@ class Account():
         self.session = requests.Session()
         
         self.villages = {}
+        self.hero = Hero()
+        
+        self.production_boost = None
         
     ### DB-loading ###
     
@@ -231,6 +236,9 @@ class Account():
         other_villages = self.villages.keys() ^ { village.village_id } # all villages except the active
         
         self.request_villages(other_villages)
+        self.request_hero()
+        
+        self.production_boost = reader.read_production_boost(doc_resources)
         
     def request_village(self, village_id, doc_login = None):
         '''
@@ -273,7 +281,14 @@ class Account():
         village_keys = village_keys if village_keys is not None else self.villages.keys()
         for village_id in village_keys:
             self.request_village(village_id)
-            
+    
+    def request_hero(self):
+        doc = self.request_GET('/hero_inventory.php')
+        reader.read_hero(doc, self.hero)
+    
+    def get_state(self):
+        return AccountState(self.production_boost, self.hero.get_state())
+    
     def update(self):
         for vill in self.villages.values():
             vill.update()

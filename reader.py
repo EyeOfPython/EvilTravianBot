@@ -1,4 +1,4 @@
-from htmldom.htmldom import HtmlDom
+﻿from htmldom.htmldom import HtmlDom
 
 import re
 from datetime import datetime, date, timedelta
@@ -73,7 +73,7 @@ report_types = {
     }
 
 def html_entities_decode(s):
-    return s.replace('&auml;', 'ä').replace('&szlig;', 'ß')
+    return s.replace('&auml;', 'ä').replace('&szlig;', 'ß').replace('&uuml;', 'ü').replace('&ouml;', 'ö')
 
 def clean_useless_entities(s):
     return s.replace("&#x202d;", "").replace("&#x202c;", "").replace("\u200e", "").replace("&#37;", "").replace("&#45;", "").strip()
